@@ -6,12 +6,17 @@ import {
 } from "react-router-dom";
 import router from './router/routes';
 import AuthProvider from './Provider/AuthProvider';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
+// Create a client
+const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </AuthProvider>
   </React.StrictMode>,
 )

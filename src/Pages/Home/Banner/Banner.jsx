@@ -15,7 +15,7 @@ import { Autoplay, Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/m
 import './Banner.css'
 const Banner = () => {
     return (
-        <div className='lg:flex lg:mx-10 gap-6 p-0 mb-10 mt-5 mx-3'>
+        <div className='lg:flex lg:mx-5 gap-6 p-0 mb-10 mt-5 mx-3'>
             <div className='lg:w-3/4 mx-auto mb-10'>
                 <Swiper
                     cssMode={true}
@@ -33,18 +33,23 @@ const Banner = () => {
                     style={{ height: '100%' }} // Add this line
                 >
                     <SwiperSlide style={{ height: '100%' }}>
-                        <div className=" lg:w-full lg:h-[690px] w-[375px] h-[569px] overflow-hidden">
-                            <img
-                                src={banner1}
-                                alt="Your Image"
-                                className="w-full h-full object-cover"
-                            />
-                            <div className="lg:px-20 px-10 space-y-4  absolute lg:bottom-56 bottom-40 text-white">
-                                <h1 className='lg:text-5xl text-2xl font-bold lg:w-4/6'>Meet The Lines Of The Millennium</h1>
-                                <p className="md:w-2/3">
-                                    Fashion is to please your eye. Shapes and proportions are for your intellect. I have an obsession with details and pattern.</p>
-                                <br />
-                                <button className="btn">Check Collection</button>
+                        <div className="lg:w-full lg:h-[690px] w-[375px] h-[569px] overflow-hidden">
+                            <div className="relative">
+                                <img
+                                    src={banner1}
+                                    alt="Your Image"
+                                    className="w-full h-full object-cover transition-transform transform hover:scale-110"
+                                />
+                                <div className="lg:px-20 px-10 space-y-4 absolute lg:bottom-56 bottom-40 text-white">
+                                    <h1 className="lg:text-5xl text-2xl font-bold lg:w-4/6">
+                                        Meet The Lines Of The Millennium
+                                    </h1>
+                                    <p className="md:w-2/3">
+                                        Fashion is to please your eye. Shapes and proportions are for your intellect. I have an obsession with details and pattern.
+                                    </p>
+                                    <br />
+                                    <button className="btn">Check Collection</button>
+                                </div>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -53,7 +58,7 @@ const Banner = () => {
                             <img
                                 src={banner2}
                                 alt="Your Image"
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover transition-transform transform hover:scale-110"
                             />
                             <div className="lg:px-20 px-10 space-y-4  absolute lg:bottom-56 bottom-40 text-white">
                                 <h1 className='lg:text-5xl text-2xl font-bold lg:w-4/6'>New Modern Collection</h1>
@@ -71,7 +76,7 @@ const Banner = () => {
             <div>
                 <div style={{ height: '100%' }}>
                     <img className='lg:w-full lg:h-[690px] w-[374px] h-[450px] mx-auto scale-100' src={banner3} alt="" />
-                    <div className="lg:px-20 px-10 space-y-4 absolute bottom-0 text-white text-center bottom-10">
+                    <div className="lg:px-20 px-10 space-y-4 absolute text-white text-center bottom-10">
                         <span>GOLD PIERCING</span>
                         <h1 className='text-3xl'>FLASH SALE</h1>
                         <p>15 NOV - 25 NOV</p>
