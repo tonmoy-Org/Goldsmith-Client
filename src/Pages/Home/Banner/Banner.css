@@ -1,0 +1,7 @@
+  /* Add this CSS to your Banner.css or global stylesheet */
+@media (max-width: 768px) {
+  .mySwiper .swiper-button-next,
+  .mySwiper .swiper-button-prev {
+      display: none !important;
+  }
+}
