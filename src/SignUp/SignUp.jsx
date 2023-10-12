@@ -1,20 +1,85 @@
-import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../Provider/AuthProvider";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { createUser} = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useAuth();
 
     const [show, setShow] = useState(false);
     const [error, setError] = useState('');
 
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
+
+    const validatePassword = (value) => {
+        // Check for password length
+        if (value.length < 6) {
+            return "Password must be at least 6 characters long";
+        }
+
+        // Check for capital letter
+        // if (!/[A-Z]/.test(value)) {
+        //     return "Password must contain at least one capital letter";
+        // }
+
+        // // Check for special character
+        // if (!/[!@#$%^&*()]/.test(value)) {
+        //     return "Password must contain at least one special character";
+        // }
+
+        return true;
+    };
     const onSubmit = (data) => {
-        console.log(data);
-        createUser(data.email, data.password)
-    }
+        const passwordValidation = validatePassword(data.password);
+
+        if (passwordValidation === true) {
+            if (data.password === data.confirmPassword) {
+                createUser(data.email, data.password)
+                    .then((result) => {
+                        const newUser = result.user;
+                        console.log(newUser);
+                        updateUserProfile(data.name, data.photoURL)
+                            .then(() => {
+                                const saveUser = { name: data.name, email: data.email, image: data.photoURL };
+                                fetch('http://localhost:5000/users', {
+                                    method: "POST",
+                                    headers: {
+                                        "content-type": "application/json",
+                                    },
+                                    body: JSON.stringify(saveUser),
+                                })
+                                    .then((res) => res.json())
+                                    .then((data) => {
+                                        if (data.insertedId) {
+                                            navigate(from, { replace: true });
+                                            reset();
+                                            Swal.fire({
+                                                position: "center",
+                                                icon: "success",
+                                                title: "User created successfully.",
+                                                showConfirmButton: false,
+                                                timer: 1500,
+                                            });
+
+                                        }
+                                    })
+                                    .catch((error) => console.log(error));
+                            })
+                            .catch((error) => console.log(error));
+                    })
+                    .catch((error) => console.log(error));
+            } else {
+                setError("Password didn't match, please try again.");
+            }
+        } else {
+            setError(passwordValidation);
+        }
+    };
 
     return (
         <div>
@@ -97,7 +162,7 @@ const SignUp = () => {
                                 </div>
                             </form>
                             <div className="py-3">
-                                
+
                             </div>
                             <div>
                                 <p>
