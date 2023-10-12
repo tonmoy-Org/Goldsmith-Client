@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -10,12 +11,29 @@ const Login = () => {
     const [show, setShow] = useState(false);
     const [error, setError] = useState('');
 
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
+
     const onSubmit = data => {
         console.log(data);
+        if (data.password.length < 6) {
+            setError('Password is less than 6 characters');
+            return;
+        }
         signIn(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                navigate(from, { replace: true });
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "User successfully Sing in.",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
             })
             .catch(error => {
                 setError(error.message);
