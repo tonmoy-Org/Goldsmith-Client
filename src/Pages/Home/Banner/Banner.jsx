@@ -11,11 +11,11 @@ import banner2 from '../../../assets/banner/accesories-full-2.jpg'
 import banner3 from '../../../assets/banner/side-banner.png'
 
 // import required modules
-import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 import './Banner.css'
 const Banner = () => {
     return (
-        <div className='lg:flex lg:mx-10 gap-6 p-0 mb-10 mt-3 mx-3'>
+        <div className='lg:flex lg:mx-10 gap-6 p-0 mb-10 mt-5 mx-3'>
             <div className='lg:w-3/4 mx-auto mb-10'>
                 <Swiper
                     cssMode={true}
@@ -24,7 +24,11 @@ const Banner = () => {
                     pagination={true}
                     loop={true}
                     keyboard={true}
-                    modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+                    autoplay={{
+                        delay: 90000,
+                        disableOnInteraction: false,
+                    }}
+                    modules={[Autoplay, Navigation, Pagination, Mousewheel, Keyboard]}
                     className="mySwiper"
                     style={{ height: '100%' }} // Add this line
                 >
@@ -67,6 +71,11 @@ const Banner = () => {
             <div>
                 <div style={{ height: '100%' }}>
                     <img className='lg:w-full lg:h-[690px] w-[374px] h-[450px] mx-auto scale-100' src={banner3} alt="" />
+                    <div className="lg:px-20 px-10 space-y-4 absolute bottom-0 text-white text-center bottom-10">
+                        <span>GOLD PIERCING</span>
+                        <h1 className='text-3xl'>FLASH SALE</h1>
+                        <p>15 NOV - 25 NOV</p>
+                    </div>
                 </div>
             </div>
         </div>
