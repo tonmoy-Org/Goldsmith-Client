@@ -27,6 +27,15 @@ const Navbar = () => {
             drawerCheckbox.checked = false;
         }
     }
+    function closeDrawer1() {
+        // Get the checkbox element that controls the drawer
+        const drawerCheckbox = document.getElementById("my-drawer-5");
+
+        // Uncheck the checkbox to close the drawer
+        if (drawerCheckbox) {
+            drawerCheckbox.checked = false;
+        }
+    }
     return (
         <div className="navbar bg-base-100 font-semibold">
             <div className="navbar-start">
@@ -50,8 +59,6 @@ const Navbar = () => {
             <a className="btn btn-ghost normal-case text-xl font-bold">GOLDSMITH</a>
             <div className="navbar-end lg:px-8 px-2">
                 <div>
-
-
                     <div className="drawer drawer-end">
                         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-content pe-4">
@@ -62,14 +69,21 @@ const Navbar = () => {
                                     <span className="badge badge-sm indicator-item">{carts?.length || 0}</span>
                                 </div>
                             </label>
-
                         </div>
                         <div className="drawer-side z-10">
                             <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
                             <div className="menu p-5 lg:w-[450px] w-80 min-h-full bg-white text-base-content">
-                                <button onClick={closeDrawer} className="btn btn-circle mb-3">
-                                    <img className="h-4 w-4" src={close} alt="" />
-                                </button>
+                                <div className="flex justify-between items-center">
+                                    <div>
+                                        <button onClick={closeDrawer} className="btn btn-circle mb-3">
+                                            <img className="h-4 w-4" src={close} alt="" />
+                                        </button>
+                                    </div>
+                                    <div className="indicator">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                                        <span className="badge badge-sm indicator-item">{carts?.length || 0}</span>
+                                    </div>
+                                </div>
                                 <hr />
                                 <div>
                                     <p className="text-[16px] py-2">BUY $500.00 MORE TO ENJOY FREE SHIPPING</p>
@@ -123,37 +137,49 @@ const Navbar = () => {
 
                 </div>
                 <div>
-                    {user &&
-                        <div className="dropdown dropdown-end">
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                    <div className="drawer drawer-end">
+                        <input id="my-drawer-5" type="checkbox" className="drawer-toggle" />
+                        {user ? <div className="drawer-content">
+                            {/* Page content here */}
+
+                            <label htmlFor="my-drawer-5" className="drawer-button btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
                                     <div>
-                                        <img src={user.photoURL}
+                                        <img src={user?.photoURL}
                                         />
                                     </div>
                                 </div>
                             </label>
-                            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-72">
-                                <li>
-                                    <p className="justify-between">
-                                        {user.displayName} <br />
-                                        {user.email}
-                                        <span className="badge">New</span>
-                                    </p>
-                                </li>
-                                <li><Link to='/profile'>Profile</Link></li>
-                                <li><Link to='/'>Home</Link></li>
-                                <li><Link onClick={handleLogOut}>Logout</Link></li>
-                            </ul>
+                        </div> : <><Link to='/login' className='lg:me-3 text-[#1890ff]'>Login</Link></>}
+                        <div className="drawer-side z-10">
+                            <label htmlFor="my-drawer-5" aria-label="close sidebar" className="drawer-overlay"></label>
+                            <div className="menu p-4 lg:w-[450px] w-80 min-h-full bg-white text-base-content">
+                                <div className="flex justify-between mb-3 items-center">
+                                    <div>
+                                        <button onClick={closeDrawer1} className="btn btn-circle">
+                                            <img className="h-4 w-4" src={close} alt="" />
+                                        </button>
+                                    </div>
+                                    <div className="">
+                                        <img className="w-12 rounded-full" src={user?.photoURL} />
+                                    </div>
+                                </div>
+                                <hr />
+                                <div>
+                                    <li>
+                                        <p className="justify-between">
+                                            {user?.displayName} <br />
+                                            {user?.email}
+                                            <span className="badge bg-primary text-white">New</span>
+                                        </p>
+                                    </li>
+                                    <li><Link to='/profile'>Profile</Link></li>
+                                    <li><Link to='/'>Home</Link></li>
+                                    <li><Link className="btn btn-error btn-sm" onClick={handleLogOut}>Logout</Link></li>
+                                </div>
+                            </div>
                         </div>
-                    }
-                </div>
-                <div>
-                    {
-                        user ?
-                            <></>
-                            : <Link to='/login' className='lg:me-3 text-[#1890ff]'>Login</Link>
-                    }
+                    </div>
                 </div>
             </div>
         </div>
