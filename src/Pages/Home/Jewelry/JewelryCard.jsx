@@ -33,7 +33,7 @@ const JewelryCard = ({ data }) => {
                     refetch();// refetch cart to update the number of items in the cart
                     Swal.fire({
                         icon: 'success',
-                        title: 'Food added on the cart.',
+                        title: 'Item added on the cart.',
                         showConfirmButton: false,
                         timer: 1500
                     })

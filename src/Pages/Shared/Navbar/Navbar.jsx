@@ -2,12 +2,15 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import close from '../../../assets/icon/close.png'
 import useCart from "../../../hooks/useCart";
+import CardItem from "../../../components/CardItem/CardItem";
+import MyCart from "../../../components/Mycart/Mycart";
+
 
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
     const [carts] = useCart();
-    
+    const total = carts.reduce((sum, item) => item.price + sum, 0).toFixed(2);
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -51,9 +54,9 @@ const Navbar = () => {
 
                     <div className="drawer drawer-end">
                         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-                        <div className="drawer-content">
+                        <div className="drawer-content pe-4">
                             {/* Page content here */}
-                            <label htmlFor="my-drawer-4" className="drawer-button btn btn-ghost btn-circle pe-4">
+                            <label htmlFor="my-drawer-4" className="drawer-button btn btn-ghost btn-circle">
                                 <div className="indicator">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                                     <span className="badge badge-sm indicator-item">{carts?.length || 0}</span>
@@ -63,12 +66,55 @@ const Navbar = () => {
                         </div>
                         <div className="drawer-side z-10">
                             <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-                            <div className="menu p-4 lg:w-[450px] w-80 min-h-full bg-base-200 text-base-content">
-                                <button onClick={closeDrawer} className="btn btn-circle">
-                                    <img className="h-5 w-5" src={close} alt="" />
+                            <div className="menu p-5 lg:w-[450px] w-80 min-h-full bg-white text-base-content">
+                                <button onClick={closeDrawer} className="btn btn-circle mb-3">
+                                    <img className="h-4 w-4" src={close} alt="" />
                                 </button>
+                                <hr />
                                 <div>
-
+                                    <p className="text-[16px] py-2">BUY $500.00 MORE TO ENJOY FREE SHIPPING</p>
+                                </div>
+                                {carts?.length === 0 ?
+                                    <div className="my-4">
+                                        <div className="mb-3 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                                            <div className="animate-pulse flex space-x-4">
+                                                <div className="rounded-full bg-slate-200 h-10 w-10"></div>
+                                                <div className="flex-1 space-y-6 py-1">
+                                                    <div className="h-2 bg-slate-200 rounded"></div>
+                                                    <div className="space-y-3">
+                                                        <div className="grid grid-cols-3 gap-4">
+                                                            <div className="h-2 bg-slate-200 rounded col-span-2"></div>
+                                                            <div className="h-2 bg-slate-200 rounded col-span-1"></div>
+                                                        </div>
+                                                        <div className="h-2 bg-slate-200 rounded"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span className="px-3 text-slate-400">No products in the cart.</span>
+                                    </div>
+                                    : <div>
+                                        {
+                                            carts.map(data => (
+                                                <CardItem
+                                                    key={data._id}
+                                                    data={data}
+                                                ></CardItem>
+                                            ))
+                                        }
+                                    </div>
+                                }
+                                <hr />
+                                <div>
+                                    <div className="flex justify-between p-3">
+                                        <div>
+                                            <h2 className="text-[17px]">Subtotal : </h2>
+                                        </div>
+                                        <div>
+                                            <h2 className="text-[17px]">${total}</h2>
+                                        </div>
+                                    </div>
+                                    <MyCart></MyCart>
                                 </div>
                             </div>
                         </div>
