@@ -15,7 +15,7 @@ import { Autoplay, Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/m
 import './Banner.css'
 const Banner = () => {
     return (
-        <div className='lg:flex lg:mx-5 gap-6 p-0 mb-10 mt-5 mx-3'>
+        <div className='lg:flex lg:mx-5 gap-6 p-0 mb-10 mt-24 mx-3'>
             <div className='lg:w-3/4 mx-auto mb-10'>
                 <Swiper
                     cssMode={true}

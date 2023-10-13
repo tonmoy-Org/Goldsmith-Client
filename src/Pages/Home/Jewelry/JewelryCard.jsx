@@ -1,12 +1,14 @@
 import Swal from 'sweetalert2';
 import view from '../../../assets/icon/view.png'
 import useCart from '../../../hooks/useCart';
+import useAuth from '../../../hooks/useAuth';
 
 
 const JewelryCard = ({ data }) => {
     const { _id, image, name, price, description, categories, tags } = data;
     const [, refetch] = useCart();
-
+    const { user } = useAuth();
+    const email = user?.email;
     const showModal = (_id, name, description, categories, tags) => {
         const modal = document.getElementById(`my_modal_${_id}`);
         if (modal) {
@@ -19,7 +21,7 @@ const JewelryCard = ({ data }) => {
     }
 
     const handleAddToCart = (price, name, image, _id) => {
-        const cartItem = {price, name, image, _id}
+        const cartItem = { price, name, image, _id , email}
         fetch('http://localhost:5000/carts', {
             method: 'POST',
             headers: {
@@ -43,10 +45,10 @@ const JewelryCard = ({ data }) => {
 
 
     return (
-        <div>
+        <div className='mt-8 lg:mt-0 mx-8 lg:mx-0'>
             <div className="relative w-64 overflow-hidden">
                 <div className="group relative">
-                    <div className="flex">
+                    <div className="flex justify-center">
                         <img
                             className="w-full h-full transform scale-100 group-hover:scale-110 transition duration-700 ease-in-out"
                             src={image}
@@ -79,8 +81,6 @@ const JewelryCard = ({ data }) => {
                                     </div>
                                 </div>
                             </dialog>
-
-
                         </div>
                         <div className="absolute inset-x-0 bottom-0 text-center opacity-0 transform translate-y-2/4 group-hover:translate-y-0 group-hover:opacity-100 transition duration-700 ease-in-out">
                             <button onClick={() => handleAddToCart(price, name, image)} className="bg-black text-white py-2 px-4 w-full transition-opacity">
