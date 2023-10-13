@@ -8,7 +8,6 @@ const JewelryCard = ({ data }) => {
     const { _id, image, name, price, description, categories, tags } = data;
     const [, refetch] = useCart();
     const { user } = useAuth();
-    const email = user?.email;
     const showModal = (_id, name, description, categories, tags) => {
         const modal = document.getElementById(`my_modal_${_id}`);
         if (modal) {
@@ -20,8 +19,9 @@ const JewelryCard = ({ data }) => {
         }
     }
 
-    const handleAddToCart = (price, name, image, _id) => {
-        const cartItem = { price, name, image, _id , email}
+    const handleAddToCart = (data) => {
+        console.log(data)
+        const cartItem = { price, name, image, item: _id , email: user?.email, userName: user?.displayName}
         fetch('http://localhost:5000/carts', {
             method: 'POST',
             headers: {
@@ -83,7 +83,7 @@ const JewelryCard = ({ data }) => {
                             </dialog>
                         </div>
                         <div className="absolute inset-x-0 bottom-0 text-center opacity-0 transform translate-y-2/4 group-hover:translate-y-0 group-hover:opacity-100 transition duration-700 ease-in-out">
-                            <button onClick={() => handleAddToCart(price, name, image)} className="bg-black text-white py-2 px-4 w-full transition-opacity">
+                            <button onClick={() => handleAddToCart(data)} className="bg-black text-white py-2 px-4 w-full transition-opacity">
                                 Add to Cart
                             </button>
 
