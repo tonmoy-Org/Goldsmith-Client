@@ -31,22 +31,18 @@ const AllJewelry = () => {
     return (
         <div>
             <div>
-                <div className='mt-24 mb-12'>
-                    <img className='w-full h-[128px] object-cover' src={shop1} alt="" />
-                    <div className="top-32 lg:px-8 absolute text-black">
+                <div className='mt-16 mb-12'>
+                    <img className='w-full lg:h-[128px] object-cover' src={shop1} alt="" />
+                    <div className="top-32 px-8 absolute text-black">
                         <span className='font-semibold'>Home . Shop</span>
                         <h1 className='text-2xl font-bold'>Shop</h1>
                     </div>
                 </div>
             </div>
-            <div className='flex mx-5 gap-8'>
+            <div className='lg:flex mx-5 gap-8'>
                 <div>
                     <div className="drawer lg:drawer-open">
                         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                        <div className="drawer-content flex flex-col items-center justify-center">
-                            {/* Page content here */}
-                            <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
-                        </div>
                         <div className="drawer-side">
                             <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
@@ -67,7 +63,7 @@ const AllJewelry = () => {
                 <div>
                     <div className='mb-20'>
                         <div className='lg:flex justify-center gap-5 items-center bg-[#F7F7F8] rounded-lg'>
-                            <div className='w-[450px] ps-10 pb-10'>
+                            <div className='lg:w-[450px] p-6 lg:ps-10'>
                                 <span className='bg-[#7d7d7d35] px-6 text-[15px]'>Nose Rings</span>
                                 <h1 className='text-2xl font-semibold mt-6'>Free Shopping over &50</h1>
                                 <p className='text-[17px] py-6 text-[#7D7D7D]'>
@@ -75,12 +71,14 @@ const AllJewelry = () => {
                                 </p>
                             </div>
                             <div className='overflow-hidden'>
-                                <img className='h-[300px] w-[980px] transition-transform transform hover:scale-110 rounded-lg object-cover' src={shop2} alt="" />
+                                <img className='lg:h-[300px] lg:w-[980px] transition-transform transform hover:scale-110 rounded-lg object-cover' src={shop2} alt="" />
                             </div>
                         </div>
                         <div className='mt-4'>
-                            <label>Showing 1–{filteredJewelry?.length === 0 ? jewelry?.length : filteredJewelry?.length} of 20 results</label>
-                            <div className='mt-3 grid grid-cols-4 gap-8'>
+                            <div className='text-center'>
+                                <label>Showing 1–{filteredJewelry?.length === 0 ? jewelry?.length : filteredJewelry?.length} of 20 results</label>
+                            </div>
+                            <div className='mt-3 grid lg:grid-cols-4  gap-8'>
                                 {filteredJewelry.length === 0 // Check if filtered data is empty
                                     ? jewelry.map(data => ( // Show all data if the filter is empty
                                         <ShopCard

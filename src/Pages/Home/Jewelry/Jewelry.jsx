@@ -6,7 +6,7 @@ const Jewelry = () => {
     const [jewelry] = useJewelry();
     return (
         <div className='lg:flex mx-5 gap-5 my-20'>
-            <div>
+            <div className='mb-10'>
                 <div style={{ position: 'relative', height: '100%' }}>
                     <img className='lg:w-full lg:h-[690px] w-[374px] h-[450px] mx-auto scale-100 rounded-xl' src={banner2} alt="" />
                     <div className="lg:px-20 px-10 space-y-4 absolute text-white text-center bottom-10">

@@ -28,7 +28,7 @@ const ShopCard = ({ data }) => {
     const handleAddToCart = (data) => {
         console.log(data)
         const cartItem = { price, name, image, item: _id, email: user?.email, userName: user?.displayName }
-        fetch('http://localhost:5000/carts', {
+        fetch('https://goldsmith-server.vercel.app/carts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -51,7 +51,7 @@ const ShopCard = ({ data }) => {
 
 
     return (
-        <div className='mt-8 lg:mt-0 mx-8 lg:mx-0 mb-3'>
+        <div className='lg:mt-0 mx-8 lg:mx-0 lg:mb-3'>
             <div className="relative w-64 overflow-hidden">
                 <div className="group relative">
                     <div className="flex justify-center">
@@ -67,7 +67,7 @@ const ShopCard = ({ data }) => {
                             </button>
                             <dialog id={`my_modal_${_id}`} className="modal">
                                 <div className="modal-box w-11/12 max-w-5xl rounded-none">
-                                    <div className='grid grid-cols-2'>
+                                    <div className='grid lg:grid-cols-2'>
                                         <div>
                                             <img src={image} alt="" />
                                         </div>
@@ -104,9 +104,9 @@ const ShopCard = ({ data }) => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className='p-2'>
                 <h2 className="text-[17px] font-semibold">{name}</h2>
-                <p className="text-[16px] text-orange-400 pt-2">${price}</p>
+                <p className="text-[16px] text-orange-400 pt-2">Price: ${price}</p>
             </div>
         </div>
     );

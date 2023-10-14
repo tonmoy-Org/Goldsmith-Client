@@ -18,7 +18,7 @@ const MyCart = () => {
             item: carts.map(item => item._id),
             date: new Date(),
         }
-        fetch('http://localhost:5000/payment', {
+        fetch('https://goldsmith-server.vercel.app/payment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
