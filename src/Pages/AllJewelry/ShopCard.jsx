@@ -1,10 +1,11 @@
 import Swal from 'sweetalert2';
-import view from '../../../assets/icon/view.png'
-import useCart from '../../../hooks/useCart';
-import useAuth from '../../../hooks/useAuth';
+import view from '../../assets/icon/view.png'
+import useCart from '../../hooks/useCart';
+import useAuth from '../../hooks/useAuth';
 
 
-const JewelryCard = ({ data }) => {
+
+const ShopCard = ({ data }) => {
     const { _id, image, name, price, description, categories, tags } = data;
     const [, refetch] = useCart();
     const { user } = useAuth();
@@ -50,7 +51,7 @@ const JewelryCard = ({ data }) => {
 
 
     return (
-        <div className='mt-8 lg:mt-0 lg:mx-0'>
+        <div className='mt-8 lg:mt-0 mx-8 lg:mx-0 mb-3'>
             <div className="relative w-64 overflow-hidden">
                 <div className="group relative">
                     <div className="flex justify-center">
@@ -111,4 +112,4 @@ const JewelryCard = ({ data }) => {
     );
 };
 
-export default JewelryCard;
+export default ShopCard;

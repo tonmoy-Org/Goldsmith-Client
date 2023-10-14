@@ -6,6 +6,9 @@ import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../SignUp/SignUp";
 import Success from "../Pages/Success/Success";
+import Cancel from "../Pages/Cancel/cancel";
+import Fails from "../Pages/Fails/Fails";
+import AllJewelry from "../Pages/AllJewelry/AllJewelry";
 
 const router = createBrowserRouter([
     {
@@ -25,8 +28,20 @@ const router = createBrowserRouter([
                 element: <SignUp></SignUp>
             },
             {
-                path: '/pay/success/:tranId',
+                path: '/payment/success/:tranId',
                 element: <Success></Success>
+            },
+            {
+                path: '/payment/cancel/:tranId',
+                element: <Cancel></Cancel>
+            },
+            {
+                path: 'fails',
+                element: <Fails></Fails>
+            },
+            {
+                path: 'shop',
+                element: <AllJewelry></AllJewelry>
             }
         ]
     },

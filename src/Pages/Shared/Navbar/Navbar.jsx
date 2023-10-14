@@ -46,7 +46,7 @@ const Navbar = () => {
         }
     }
     return (
-        <div className="navbar fixed top-0 z-50 bg-white font-semibold border-b-2 border-[#7A7A7A] duration-1000">
+        <div className="navbar fixed top-0 z-10 bg-white font-semibold border-b-2 border-[#7A7A7A] duration-1000">
             <div className="navbar-start">
                 <div className="ps-4 lg:hidden lg:ps-0">
                     <div className="drawer">
@@ -67,7 +67,7 @@ const Navbar = () => {
                                 </div>
                                 <div>
                                     <li><Link to='/'>Home</Link></li>
-                                    <li><a>Shop</a></li>
+                                    <li><Link to='/shop'>Shop</Link></li>
                                     <li><a>My Jewelry</a></li>
                                     <li><a>Add jewelry</a></li>
                                     <li><a>Blogs</a></li>
@@ -79,7 +79,7 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal lg:px-8">
                         <li><Link to='/'>Home</Link></li>
-                        <li><a>Shop</a></li>
+                        <li><Link to='/shop'>Shop</Link></li>
                         <li><a>My Jewelry</a></li>
                         <li><a>Add jewelry</a></li>
                         <li><a>Blogs</a></li>
