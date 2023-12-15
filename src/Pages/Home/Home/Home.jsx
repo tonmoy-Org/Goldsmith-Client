@@ -1,3 +1,4 @@
+import Offer from "../../Offer/Offer";
 import Reflect from "../../Reflect/Reflect";
 import Banner from "../Banner/Banner";
 import Jewelry from "../Jewelry/Jewelry";
@@ -10,6 +11,7 @@ const Home = () => {
          <Banner></Banner>
          <Tags></Tags>
          <Jewelry></Jewelry>
+         <Offer></Offer>
          <Reflect></Reflect>
         </div>
     );

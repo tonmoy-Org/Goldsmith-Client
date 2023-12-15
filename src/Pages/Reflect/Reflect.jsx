@@ -12,7 +12,7 @@ const Reflect = () => {
     return (
         <div className='mb-20'>
             <div className='lg:flex justify-center gap-5 items-center bg-[#F7F7F8] rounded-xl mx-5'>
-                <div className='lg:w-[450px] ps-10 pb-10'>
+                <div className='lg:w-[450px] ps-10 pb-10 pt-6'>
                     <span className='bg-[#FAC213] rounded-3xl px-3 text-[14px]'>DEALS OF THE WEEK</span>
                     <h1 className='text-4xl font-semibold mt-10'>Reflect the bonds of the past into your modern life.</h1>
                     <p className='text-[17px] py-6 text-[#7D7D7D]'>

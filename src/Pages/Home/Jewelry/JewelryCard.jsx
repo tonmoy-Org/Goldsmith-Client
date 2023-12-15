@@ -27,7 +27,7 @@ const JewelryCard = ({ data }) => {
     const handleAddToCart = (data) => {
         console.log(data)
         const cartItem = { price, name, image, item: _id, email: user?.email, userName: user?.displayName }
-        fetch('https://goldsmith-server.vercel.app/carts', {
+        fetch('http://localhost:5000/carts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -51,11 +51,11 @@ const JewelryCard = ({ data }) => {
 
     return (
         <div className='mt-2 lg:mt-0 lg:mx-0 mx-auto'>
-            <div className="relative w-64 overflow-hidden ">
+            <div className="relative  lg:w-64 overflow-hidden ">
                 <div className="group relative">
                     <div className="flex justify-center">
                         <img
-                            className="w-full h-full transform scale-100 group-hover:scale-110 transition duration-700 ease-in-out"
+                            className="lg:w-full lg:h-full transform scale-100 group-hover:scale-110 transition duration-700 ease-in-out"
                             src={image}
                             alt=""
                         />
