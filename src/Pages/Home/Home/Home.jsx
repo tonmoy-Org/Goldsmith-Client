@@ -1,8 +1,10 @@
+import Newslatter from "../../Newslatter/Newslatter";
 import Offer from "../../Offer/Offer";
 import Reflect from "../../Reflect/Reflect";
 import SocialMedia from "../../SocialMedia/SocialMedia";
 import Banner from "../Banner/Banner";
 import Jewelry from "../Jewelry/Jewelry";
+import Season from "../Season/Season";
 import Tags from "../Tags/Tags";
 
 
@@ -15,6 +17,8 @@ const Home = () => {
          <Offer></Offer>
          <Reflect></Reflect>
          <SocialMedia></SocialMedia>
+         <Season></Season>
+         <Newslatter></Newslatter>
         </div>
     );
 };

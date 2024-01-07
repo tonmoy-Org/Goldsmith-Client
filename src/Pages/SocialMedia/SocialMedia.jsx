@@ -209,7 +209,6 @@ const SocialMedia = () => {
                                     </div>
                                 </div>
                             </SwiperSlide>
-
                         </Swiper>
                     </>
                 </div>
