@@ -10,10 +10,10 @@ const Reflect = () => {
     const Completionist = () => <span>You are good to go!</span>;
 
     return (
-        <div className='mb-20'>
-            <div className='lg:flex justify-center gap-5 items-center bg-[#F7F7F8] rounded-xl mx-5'>
-                <div className='lg:w-[450px] ps-10 pb-10 pt-6'>
-                    <span className='bg-[#FAC213] rounded-3xl px-3 text-[14px]'>DEALS OF THE WEEK</span>
+        <div className='mb-20 lg:mx-2'>
+            <div className='lg:flex justify-center gap-14 items-center bg-[#F7F7F8] rounded-xl mx-5'>
+                <div className='lg:w-[450px] lg:p-8 p-5 mb-5'>
+                    <span className='bg-[#FAC213] rounded-3xl px-4 text-[12px] font-bold'>DEALS OF THE WEEK</span>
                     <h1 className='text-4xl font-semibold mt-10'>Reflect the bonds of the past into your modern life.</h1>
                     <p className='text-[17px] py-6 text-[#7D7D7D]'>
                         Fashion is about dressing according to what's fashionable. Style is more about being yourself. Design is a constant challenge to balance comfort with luxe...
