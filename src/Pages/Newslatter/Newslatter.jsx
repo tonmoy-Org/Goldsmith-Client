@@ -14,7 +14,7 @@ const Newslatter = () => {
                     <div className="flex items-center py-2">
                         <input
                             type="text"
-                            className="border border-gray-300 pe-28 ps-3 py-2 rounded-l focus:outline-none focus:border-black"
+                            className="border border-gray-300 lg:pe-28  ps-3 py-2 rounded-l focus:outline-none focus:border-black"
                             placeholder="Enter text..."
                         />
                         <button className="bg-black text-white px-4 py-2 rounded-r focus:outline-none">
