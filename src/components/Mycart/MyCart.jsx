@@ -45,7 +45,7 @@ const MyCart = () => {
       date: new Date(),
     };
 
-    fetch('http://localhost:5000/createRequest', {
+    fetch('https://goldsmith-server.vercel.app/createRequest', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json', // Fix the header name

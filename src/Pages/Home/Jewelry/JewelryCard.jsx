@@ -27,7 +27,7 @@ const JewelryCard = ({ data }) => {
     const handleAddToCart = (data) => {
         console.log(data)
         const cartItem = { price, name, image, item: _id, email: user?.email, userName: user?.displayName }
-        fetch('http://localhost:5000/carts', {
+        fetch('https://goldsmith-server.vercel.app/carts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
