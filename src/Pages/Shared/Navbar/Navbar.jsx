@@ -60,6 +60,7 @@ const Navbar = () => {
                             <div className="menu p-4 lg:w-[450px] w-80 min-h-full bg-white text-base-content">
                                 <div className="flex justify-end mb-3 items-center pb-3 border-b-2 border-[#7a7a7a4f] pe-3">
                                     <div>
+                                        <p className="btn btn-ghost normal-case text-xl font-bold pe-20">GOLDSMITH</p>
                                         <button onClick={closeDrawer2} className="btn btn-circle">
                                             <img className="h-4 w-4" src={close} alt="" />
                                         </button>
