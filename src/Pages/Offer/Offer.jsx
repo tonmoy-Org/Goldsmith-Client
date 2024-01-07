@@ -2,14 +2,15 @@
 
 const Offer = () => {
     return (
-        <div className="flex gap-10 justify-center mb-6 lg:mx-5 mx-3">
-            <div className="border bottom-3 border-red-600 flex py-6 bg-red-100">
-                <h2 className="mx-8">Super discount for your first purchase</h2>
-                <span className='bg-[#FAC213] rounded-3xl px-3 text-[14px]'>DEALS OF THE WEEK</span>
-                <h2 className="mx-8">Use discount code in checkout page.</h2>
+        <div className="lg:flex gap-10 justify-center my-10 lg:mx-5 mx-3 text-center">
+            <div className="border bottom-3 border-red-600 rounded-lg lg:flex items-center justify-center mb-6 lg:mb-0 py-5 bg-red-100 font-semibold">
+                <p className="mx-8 py-2">Super discount for your first purchase</p>
+                <span className='bg-red-500 rounded-3xl px-3 text-[13px] text-white'>DEALS OF THE WEEK</span>
+                <p className="mx-8 py-2">Use discount code in checkout page.</p>
             </div>
-            <div className="border bottom-3 border-red-600 flex py-6 bg-red-100">
-                <h2 className="mx-40">2nd shopping surprise campaign!</h2>
+            <div className="border bottom-3 border-yellow-600 rounded-lg lg:flex items-center gap-8 py-6 bg-yellow-100 font-semibold">
+                <p className="pb-3 lg:ms-20">2nd shopping surprise campaign!</p>
+                <span className='bg-[#FAC213] rounded-3xl px-3 text-[13px] lg:me-20'>DEALS OF THE WEEK</span>
             </div>
         </div>
     );
