@@ -1,9 +1,23 @@
+import React, { useState, useEffect } from 'react';
 import banner2 from '../../../assets/section-banner/banner-1.png';
 import useJewelry from '../../../hooks/useJewelry';
 import JewelryCard from './JewelryCard';
 
 const Jewelry = () => {
-    const [jewelry] = useJewelry();
+    const [jewelry, loading] = useJewelry();
+    const [showLoader, setShowLoader] = useState(true);
+
+    useEffect(() => {
+        const loaderTimeout = setTimeout(() => {
+            // Hide the loader after 2000 milliseconds (2 seconds)
+            setShowLoader(false);
+        }, 2000);
+
+        return () => {
+            // Clear the timeout if the component unmounts before the timeout completes
+            clearTimeout(loaderTimeout);
+        };
+    }, []);
 
     // Use slice(0, 8) to get the first 8 items from the array
     const slicedJewelry = jewelry.slice(0, 8);
@@ -20,16 +34,17 @@ const Jewelry = () => {
                     </div>
                 </div>
             </div>
-            <div className='grid lg:grid-cols-4 grid-cols-2 lg:gap-7 gap-4'>
-                {
-                    slicedJewelry.map(data => (
-                        <JewelryCard
-                            key={data._id}
-                            data={data}
-                        ></JewelryCard>
-                    ))
-                }
-            </div>
+            {showLoader ? (
+                <p className="w-16 mx-auto mt-40">
+                    <span className="loading loading-dots w-20"></span>
+                </p>
+            ) : (
+                <div className='grid lg:grid-cols-4 grid-cols-2 lg:gap-7 gap-4'>
+                    {slicedJewelry.map(data => (
+                        <JewelryCard key={data._id} data={data}></JewelryCard>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

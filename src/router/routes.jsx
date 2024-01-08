@@ -9,6 +9,8 @@ import Success from "../Pages/Success/Success";
 import Cancel from "../Pages/Cancel/cancel";
 import Fails from "../Pages/Fails/Fails";
 import AllJewelry from "../Pages/AllJewelry/AllJewelry";
+import MyJewelry from "../Pages/MyJewelry/MyJewelry";
+import PrivateRoute from "./PrivateRouter";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
             {
                 path: 'shop',
                 element: <AllJewelry></AllJewelry>
+            },
+            {
+                path: 'myjewelry',
+                element: <PrivateRoute><MyJewelry></MyJewelry></PrivateRoute>
             }
         ]
     },

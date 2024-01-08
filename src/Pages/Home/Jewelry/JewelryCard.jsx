@@ -5,11 +5,15 @@ import useAuth from '../../../hooks/useAuth';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const JewelryCard = ({ data }) => {
     const { _id, image, name, price, description, categories, tags, items } = data;
     const [, refetch] = useCart();
     const { user } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/login";
 
     const showModal = (_id, name, description, categories, tags, image) => {
         const modal = document.getElementById(`my_modal_${_id}`);
@@ -28,6 +32,11 @@ const JewelryCard = ({ data }) => {
 
     const handleAddToCart = (data) => {
         console.log(data)
+
+        if (!user) {
+            navigate(from, { replace: true });
+            return;
+        }
         const cartItem = { price, name, image, item: _id, email: user?.email, userName: user?.displayName }
         fetch('https://goldsmith-server.vercel.app/carts', {
             method: 'POST',
@@ -69,7 +78,7 @@ const JewelryCard = ({ data }) => {
                             <dialog id={`my_modal_${_id}`} className="modal">
                                 <div className="modal-box w-11/12 max-w-5xl rounded-none lg:p-6">
                                     <div className='grid lg:grid-cols-2'>
-                                        <div className='flex' style={{ width: '88%', height: 'auto' }}>
+                                        <div className='mx-auto' style={{ width: '88%', height: 'auto' }}>
                                             <Carousel >
                                                 <div>
                                                     <img src={items.img1} style={{ width: '100%', height: 'auto' }} />

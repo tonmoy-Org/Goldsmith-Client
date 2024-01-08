@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogIn from "../Shared/SocialLogin/SocialLogin";
 
 
 const Login = () => {
@@ -82,7 +83,9 @@ const Login = () => {
                         </form>
                         <br />
                         <div>
-
+                            <div>
+                                <SocialLogIn></SocialLogIn>
+                            </div>
                         </div>
                         <div>
                             <p>New to Goldsmith ? <Link className="text-primary" to="/signUp">Sign in</Link></p>

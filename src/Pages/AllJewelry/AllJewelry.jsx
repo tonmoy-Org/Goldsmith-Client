@@ -3,13 +3,28 @@ import shop2 from '../../assets/section-banner/shop-2.png';
 import useJewelry from '../../hooks/useJewelry';
 import ShopCard from './ShopCard';
 import Newslatter from '../Newslatter/Newslatter';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const AllJewelry = () => {
-    const [jewelry] = useJewelry();
+    const [jewelry, loading] = useJewelry();
+    const [showLoader, setShowLoader] = useState(true);
+
+    useEffect(() => {
+        const loaderTimeout = setTimeout(() => {
+            // Hide the loader after 2000 milliseconds (2 seconds)
+            setShowLoader(false);
+        }, 2000);
+
+        return () => {
+            // Clear the timeout if the component unmounts before the timeout completes
+            clearTimeout(loaderTimeout);
+        };
+    }, []);
+
     const [filteredJewelry, setFilteredJewelry] = useState([]);
     const [rangeValue, setRangeValue] = useState(0);
     const [displayedProducts, setDisplayedProducts] = useState(8); // State to track the number of products to display initially
+    const [loadingMore, setLoadingMore] = useState(false);
 
     const handleRangePrice = (e) => {
         const selectedRange = parseInt(e.target.value);
@@ -24,8 +39,14 @@ const AllJewelry = () => {
     };
 
     const handleViewAll = () => {
-        // Increase the number of displayed products to show all
-        setDisplayedProducts(jewelry.length);
+        // Set loadingMore to true when the "View all jewelry products" button is pressed
+        setLoadingMore(true);
+
+        // Simulate a delay (you can replace this with your actual API call)
+        setTimeout(() => {
+            setDisplayedProducts(jewelry.length);
+            setLoadingMore(false);
+        }, 2000); // Replace 1000 with the actual delay in milliseconds
     };
 
     return (
@@ -73,36 +94,45 @@ const AllJewelry = () => {
                                 <img className='lg:h-[300px] lg:w-[980px] transition-transform transform hover:scale-110 rounded-lg object-cover' src={shop2} alt="" />
                             </div>
                         </div>
-                        <div className='mt-4'>
-                            <div className='text-center'>
-                                <label>Showing 1–{displayedProducts} of {jewelry.length} results</label>
-                            </div>
-                            <div className='grid lg:grid-cols-4 grid-cols-2 lg:gap-7 gap-4 mt-4'>
-                                {filteredJewelry.length === 0
-                                    ? jewelry.slice(0, displayedProducts).map(data => (
-                                        <ShopCard
-                                            className="column"
-                                            key={data._id}
-                                            data={data}
-                                        ></ShopCard>
-                                    ))
-                                    : filteredJewelry.map(data => (
-                                        <ShopCard
-                                            className="column"
-                                            key={data._id}
-                                            data={data}
-                                        ></ShopCard>
-                                    ))
-                                }
-                            </div>
-                        </div>
+                        {showLoader ? (
+                            <p className="w-16 mx-auto mt-40">
+                                <span className="loading loading-dots w-20"></span>
+                            </p>
+                        ) :
+                            (<div>
+                                <div className='mt-4'>
+                                    <div className='text-center'>
+                                        <label>Showing 1–{displayedProducts} of {jewelry.length} results</label>
+                                    </div>
+                                    <div className='grid lg:grid-cols-4 grid-cols-2 lg:gap-7 gap-4 mt-4'>
+                                        {filteredJewelry.length === 0
+                                            ? jewelry.slice(0, displayedProducts).map(data => (
+                                                <ShopCard
+                                                    className="column"
+                                                    key={data._id}
+                                                    data={data}
+                                                ></ShopCard>
+                                            ))
+                                            : filteredJewelry.map(data => (
+                                                <ShopCard
+                                                    className="column"
+                                                    key={data._id}
+                                                    data={data}
+                                                ></ShopCard>
+                                            ))
+                                        }
+                                    </div>
+                                </div>
+                            </div>)}
+                        {loadingMore && <p className="w-16 mx-auto mt-4"><span className="loading loading-dots w-20"></span></p>}
+
                         {displayedProducts < jewelry.length && (
                             <div className='flex justify-center my-6'>
                                 <button
                                     className="bg-black text-white font-semibold py-2 px-7 border border-white hover:border-transparent rounded"
                                     onClick={handleViewAll}
                                 >
-                                    View all jewelry products
+                                    {loadingMore ? 'Loading...' : 'View all jewelry products'}
                                 </button>
                             </div>
                         )}

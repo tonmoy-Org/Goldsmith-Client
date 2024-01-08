@@ -5,12 +5,19 @@ import useAuth from '../../hooks/useAuth';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+
 
 const ShopCard = ({ data }) => {
     const { _id, image, name, price, description, categories, tags, items } = data;
     const [, refetch] = useCart();
     const { user } = useAuth();
-    console.log(items);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/login";
+
+  
     const showModal = (_id, name, description, categories, tags, image) => {
         const modal = document.getElementById(`my_modal_${_id}`);
 
@@ -28,6 +35,11 @@ const ShopCard = ({ data }) => {
 
     const handleAddToCart = (data) => {
         console.log(data)
+
+        if (!user) {
+            navigate(from, { replace: true });
+            return;
+        }
         const cartItem = { price, name, image, item: _id, email: user?.email, userName: user?.displayName }
         fetch('https://goldsmith-server.vercel.app/carts', {
             method: 'POST',

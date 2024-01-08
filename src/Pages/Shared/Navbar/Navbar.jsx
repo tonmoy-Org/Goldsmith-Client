@@ -69,7 +69,7 @@ const Navbar = () => {
                                 <div>
                                     <li><Link to='/'>Home</Link></li>
                                     <li><Link to='/shop'>Shop</Link></li>
-                                    <li><a>My Jewelry</a></li>
+                                    <li><Link to='/myjewelry'>My Jewelry</Link></li>
                                     <li><a>Add jewelry</a></li>
                                     <li><a>Blogs</a></li>
                                 </div>
@@ -81,7 +81,7 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal lg:px-8">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/shop'>Shop</Link></li>
-                        <li><a>My Jewelry</a></li>
+                        <li><Link to='/myjewelry'>My Jewelry</Link></li>
                         <li><a>Add jewelry</a></li>
                         <li><a>Blogs</a></li>
                     </ul>

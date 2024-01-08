@@ -9,7 +9,7 @@ const Season = () => {
                     <img src={background2} className="w-full brightness-75 object-cover" style={{ height: '80vh' }} />
                     <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full flex flex-col items-center justify-center text-white text-center">
                         <span className='bg-yellow-500 rounded-3xl px-4 py-1 text-xs font-bold'>DEALS OF THE WEEK</span>
-                        <TypeAnimation className='text-[2rem] font-semibold my-4'
+                        <TypeAnimation className='lg:text-[2rem] text-2xl font-semibold my-4'
                             sequence={[
                                 'Back to the past: Earrings',
                                 1000,
