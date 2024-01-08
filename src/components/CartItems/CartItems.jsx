@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import delete1 from '../../assets/icon/delete.png';
 import useCart from '../../hooks/useCart';
 
-const CardItem = ({ data }) => {
+const CartItems = ({ data }) => {
     const { _id, image, name, price } = data;
     const [, refetch] = useCart();
 
@@ -18,7 +18,7 @@ const CardItem = ({ data }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://goldsmith-server.vercel.app/carts/${id}`, {
+                fetch(`http://localhost:5000/carts/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -53,4 +53,4 @@ const CardItem = ({ data }) => {
     );
 };
 
-export default CardItem;
+export default CartItems;

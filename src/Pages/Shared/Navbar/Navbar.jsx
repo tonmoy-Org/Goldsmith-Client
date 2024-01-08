@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import close from '../../../assets/icon/close.png'
 import useCart from "../../../hooks/useCart";
-import CardItem from "../../../components/CardItem/CardItem";
-import MyCart from "../../../components/Mycart/Mycart";
 import { Bars3Icon } from '@heroicons/react/24/solid'
+import CartItems from "../../../components/CartItems/CartItems";
+import Payment from "../../../components/Payment/Payment";
+
 
 
 const Navbar = () => {
@@ -142,10 +143,10 @@ const Navbar = () => {
                                         : <div>
                                             {
                                                 carts.map(data => (
-                                                    <CardItem
+                                                    <CartItems
                                                         key={data._id}
                                                         data={data}
-                                                    ></CardItem>
+                                                    ></CartItems>
                                                 ))
                                             }
                                         </div>
@@ -160,7 +161,7 @@ const Navbar = () => {
                                             <h2 className="text-[17px]">${total}</h2>
                                         </div>
                                     </div>
-                                    <MyCart></MyCart>
+                                    <Payment></Payment>
                                 </div>
                             </div>
                         </div>

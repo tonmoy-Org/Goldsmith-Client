@@ -5,12 +5,10 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../SignUp/SignUp";
-import Success from "../Pages/Success/Success";
-import Cancel from "../Pages/Cancel/cancel";
-import Fails from "../Pages/Fails/Fails";
 import AllJewelry from "../Pages/AllJewelry/AllJewelry";
 import MyJewelry from "../Pages/MyJewelry/MyJewelry";
 import PrivateRoute from "./PrivateRouter";
+import MyPayments from "../components/MyPayments/MyPayments";
 
 const router = createBrowserRouter([
     {
@@ -22,32 +20,24 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: 'login',
+                path: '/login',
                 element: <Login></Login>
             },
             {
-                path: 'signUp',
+                path: '/signUp',
                 element: <SignUp></SignUp>
             },
             {
-                path: '/payment/success/:tranId',
-                element: <Success></Success>
-            },
-            {
-                path: '/payment/cancel/:tranId',
-                element: <Cancel></Cancel>
-            },
-            {
-                path: 'fails',
-                element: <Fails></Fails>
-            },
-            {
-                path: 'shop',
+                path: '/shop',
                 element: <AllJewelry></AllJewelry>
             },
             {
-                path: 'myjewelry',
+                path: '/myjewelry',
                 element: <PrivateRoute><MyJewelry></MyJewelry></PrivateRoute>
+            },
+            {
+                path: '/myPayments', // Correct path here
+                element: <MyPayments></MyPayments>
             }
         ]
     },
