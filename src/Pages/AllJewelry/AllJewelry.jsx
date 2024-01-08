@@ -1,32 +1,32 @@
-import { useState } from 'react';
 import shop1 from '../../assets/section-banner/shop-1.png';
 import shop2 from '../../assets/section-banner/shop-2.png';
 import useJewelry from '../../hooks/useJewelry';
 import ShopCard from './ShopCard';
+import Newslatter from '../Newslatter/Newslatter';
+import { useState } from 'react';
 
 const AllJewelry = () => {
     const [jewelry] = useJewelry();
-    const [filteredJewelry, setFilteredJewelry] = useState([]); // Initialize as an empty array
+    const [filteredJewelry, setFilteredJewelry] = useState([]);
+    const [rangeValue, setRangeValue] = useState(0);
+    const [displayedProducts, setDisplayedProducts] = useState(8); // State to track the number of products to display initially
 
     const handleRangePrice = (e) => {
         const selectedRange = parseInt(e.target.value);
-
-        // Filter the jewelry products based on the selected price range
         const filteredProducts = jewelry.filter((product) => product.price <= selectedRange);
-
-        // Update the state with the filtered products
         setRangeValue(selectedRange);
         setFilteredJewelry(filteredProducts);
     };
 
-    const [rangeValue, setRangeValue] = useState(0);
-
     const handleRangeChange = (e) => {
         setRangeValue(e.target.value);
-        // Clear the filter when the range input changes to show all data
         setFilteredJewelry([]);
     };
 
+    const handleViewAll = () => {
+        // Increase the number of displayed products to show all
+        setDisplayedProducts(jewelry.length);
+    };
 
     return (
         <div>
@@ -46,7 +46,6 @@ const AllJewelry = () => {
                         <div className="drawer-side">
                             <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-                                {/* Sidebar content here */}
                                 <label className='text-[18px] font-bold py-2'>Filter By Price</label>
                                 <input
                                     type="range"
@@ -76,18 +75,18 @@ const AllJewelry = () => {
                         </div>
                         <div className='mt-4'>
                             <div className='text-center'>
-                                <label>Showing 1–{filteredJewelry?.length === 0 ? jewelry?.length : filteredJewelry?.length} of 20 results</label>
+                                <label>Showing 1–{displayedProducts} of {jewelry.length} results</label>
                             </div>
-                            <div className='mt-3 grid lg:grid-cols-4  gap-8'>
-                                {filteredJewelry.length === 0 // Check if filtered data is empty
-                                    ? jewelry.map(data => ( // Show all data if the filter is empty
+                            <div className='grid lg:grid-cols-4 grid-cols-2 lg:gap-7 gap-4 mt-4'>
+                                {filteredJewelry.length === 0
+                                    ? jewelry.slice(0, displayedProducts).map(data => (
                                         <ShopCard
                                             className="column"
                                             key={data._id}
                                             data={data}
                                         ></ShopCard>
                                     ))
-                                    : filteredJewelry.map(data => ( // Show filtered data when available
+                                    : filteredJewelry.map(data => (
                                         <ShopCard
                                             className="column"
                                             key={data._id}
@@ -97,9 +96,20 @@ const AllJewelry = () => {
                                 }
                             </div>
                         </div>
+                        {displayedProducts < jewelry.length && (
+                            <div className='flex justify-center my-6'>
+                                <button
+                                    className="bg-black text-white font-semibold py-2 px-7 border border-white hover:border-transparent rounded"
+                                    onClick={handleViewAll}
+                                >
+                                    View all jewelry products
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
+            <Newslatter></Newslatter>
         </div>
     );
 };

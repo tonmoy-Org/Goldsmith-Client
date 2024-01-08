@@ -4,11 +4,12 @@
         "image": "https://i.ibb.co/CQqSXGS/j-1.webp",
         "price": 95.00,
         "items": {
-            "img-1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
-            "img-2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
-            "img-3": "https://i.ibb.co/CQqSXGS/j-1.webp"
+            "img1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
+            "img2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
+            "img3": "https://i.ibb.co/CQqSXGS/j-1.webp"
         },
         "description": "Safer For The Environment: Our denim factory partner recycles 98% of their water using reverse osmosis filtration and keeps byproducts out of the environment by mixing them with concrete to create building materials.",
+        "colour": "Brown",
         "categories": "Gold Bangles, Gold Buckle, Gold Piercing, Gold Rings, Nose Rings, Silver Rings",
         "tags": "Bestseller, Trend"
     },
@@ -17,11 +18,12 @@
         "image": "https://i.ibb.co/r36Csrb/j-2.webp",
         "price": 240.00,
         "items": {
-            "img-1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
-            "img-2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
-            "img-3": "https://i.ibb.co/CQqSXGS/j-1.webp"
+            "img1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
+            "img2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
+            "img3": "https://i.ibb.co/CQqSXGS/j-1.webp"
         },
         "description": "Safer For The Environment: Our denim factory partner recycles 98% of their water using reverse osmosis filtration and keeps byproducts out of the environment by mixing them with concrete to create building materials.",
+        "colour": "Green",
         "categories": "Gold Bangles, Gold Buckle, Gold Piercing, Gold Rings, Nose Rings, Silver Rings",
         "tags": "Bestseller, Trend"
     },
@@ -30,11 +32,12 @@
         "image": "https://i.ibb.co/FV9Dj0Y/j-3.webp",
         "price": 144.00,
         "items": {
-            "img-1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
-            "img-2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
-            "img-3": "https://i.ibb.co/CQqSXGS/j-1.webp"
+            "img1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
+            "img2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
+            "img3": "https://i.ibb.co/CQqSXGS/j-1.webp"
         },
         "description": "Safer For The Environment: Our denim factory partner recycles 98% of their water using reverse osmosis filtration and keeps byproducts out of the environment by mixing them with concrete to create building materials.",
+        "colour": "Red",
         "categories": "Gold Bangles, Gold Buckle, Gold Piercing, Gold Rings, Nose Rings, Silver Rings",
         "tags": "Bestseller, Trend"
     },
@@ -43,11 +46,12 @@
         "image": "https://i.ibb.co/1QttTLQ/j-4.webp",
         "price": 144.00,
         "items": {
-            "img-1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
-            "img-2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
-            "img-3": "https://i.ibb.co/CQqSXGS/j-1.webp"
+            "img1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
+            "img2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
+            "img3": "https://i.ibb.co/CQqSXGS/j-1.webp"
         },
         "description": "Safer For The Environment: Our denim factory partner recycles 98% of their water using reverse osmosis filtration and keeps byproducts out of the environment by mixing them with concrete to create building materials.",
+        "colour": "Brown",
         "categories": "Gold Bangles, Gold Buckle, Gold Piercing, Gold Rings, Nose Rings, Silver Rings",
         "tags": "Bestseller, Trend"
     },
@@ -56,11 +60,12 @@
         "image": "https://i.ibb.co/0hLYnYd/j-5.webp",
         "price": 100.00,
         "items": {
-            "img-1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
-            "img-2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
-            "img-3": "https://i.ibb.co/CQqSXGS/j-1.webp"
+            "img1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
+            "img2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
+            "img3": "https://i.ibb.co/CQqSXGS/j-1.webp"
         },
         "description": "Safer For The Environment: Our denim factory partner recycles 98% of their water using reverse osmosis filtration and keeps byproducts out of the environment by mixing them with concrete to create building materials.",
+        "colour": "Brown",
         "categories": "Gold Bangles, Gold Buckle, Gold Piercing, Gold Rings, Nose Rings, Silver Rings",
         "tags": "Bestseller, Trend"
     },
@@ -69,11 +74,12 @@
         "image": "https://i.ibb.co/3CqsJjd/j-6.webp",
         "price": 32.00,
         "items": {
-            "img-1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
-            "img-2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
-            "img-3": "https://i.ibb.co/CQqSXGS/j-1.webp"
+            "img1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
+            "img2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
+            "img3": "https://i.ibb.co/CQqSXGS/j-1.webp"
         },
         "description": "Safer For The Environment: Our denim factory partner recycles 98% of their water using reverse osmosis filtration and keeps byproducts out of the environment by mixing them with concrete to create building materials.",
+        "colour": "Brown",
         "categories": "Gold Bangles, Gold Buckle, Gold Piercing, Gold Rings, Nose Rings, Silver Rings",
         "tags": "Bestseller, Trend"
     },
@@ -82,11 +88,12 @@
         "image": "https://i.ibb.co/1JCMWCD/j-7.webp",
         "price": 68.00,
         "items": {
-            "img-1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
-            "img-2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
-            "img-3": "https://i.ibb.co/CQqSXGS/j-1.webp"
+            "img1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
+            "img2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
+            "img3": "https://i.ibb.co/CQqSXGS/j-1.webp"
         },
         "description": "Safer For The Environment: Our denim factory partner recycles 98% of their water using reverse osmosis filtration and keeps byproducts out of the environment by mixing them with concrete to create building materials.",
+        "colour": "Brown",
         "categories": "Gold Bangles, Gold Buckle, Gold Piercing, Gold Rings, Nose Rings, Silver Rings",
         "tags": "Bestseller, Trend"
     },
@@ -95,12 +102,69 @@
         "image": "https://i.ibb.co/R7xDQ3n/j-8.webp",
         "price": 200.00,
         "items": {
-            "img-1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
-            "img-2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
-            "img-3": "https://i.ibb.co/CQqSXGS/j-1.webp"
+            "img1": "https://i.ibb.co/1s2bnpY/37000208-OR-450x450.webp",
+            "img2": "https://i.ibb.co/88WSYPx/37000208-OR-99999999-01-150x150.webp",
+            "img3": "https://i.ibb.co/CQqSXGS/j-1.webp"
         },
         "description": "Safer For The Environment: Our denim factory partner recycles 98% of their water using reverse osmosis filtration and keeps byproducts out of the environment by mixing them with concrete to create building materials.",
+        "colour": "White",
         "categories": "Gold Bangles, Gold Buckle, Gold Piercing, Gold Rings, Nose Rings, Silver Rings",
         "tags": "Bestseller, Trend"
+    },
+    {
+        "name": "Earrings crystals knots",
+        "image": "https://i.ibb.co/yRFMm6b/37040126-OR-B-450x450.webp",
+        "price": 105.00,
+        "items": {
+            "img1": "https://i.ibb.co/z2z3drZ/37040126-OR-D8-450x450.webp",
+            "img2": "https://i.ibb.co/pJc1dff/37040126-OR-450x450.webp",
+            "img3": "https://i.ibb.co/zJTzcCB/37040126-OR-99999999-01-450x450.webp"
+        },
+        "description": "Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est",
+        "colour": "Brown",
+        "categories": "Bracelets, Gold Bangles, Gold Buckle, Gold Piercing, Nose Rings, Sets",
+        "tags": "Bestseller, Trend"
+    },
+    {
+        "name": "Beaded pendant earrings",
+        "image": "https://i.ibb.co/J2FxBC6/37040205-OR-B-450x450.webp",
+        "price": 105.00,
+        "items": {
+            "img1": "https://i.ibb.co/WG2s17b/37040205-OR-450x450.webp",
+            "img2": "https://i.ibb.co/9NtJ5Dv/37040205-OR-99999999-01-450x450.webp",
+            "img3": "https://i.ibb.co/GFjpmmP/37010208-OR-450x450.webp"
+        },
+        "description": "Safer For The Environment: Our denim factory partner recycles 98% of their water using reverse osmosis filtration and keeps byproducts out of the environment by mixing them with concrete to create building materials.",
+        "colour": "Brown",
+        "categories": "Gold Piercing, Nose Rings, Silver Rings",
+        "tags": "estseller, Trend"
+    },
+    {
+        "name": "Long crystal earrings",
+        "image": "https://i.ibb.co/McdgrdY/37042501-OR-D2-450x450.webp",
+        "price": 105.00,
+        "items": {
+            "img1": "https://i.ibb.co/Ld5STyJ/37042501-OR-450x450.webp",
+            "img2": "https://i.ibb.co/McdgrdY/37042501-OR-D2-450x450.webp",
+            "img3": "https://i.ibb.co/McdgrdY/37042501-OR-D2-450x450.webp"
+        },
+        "description": "Safer For The Environment: Our denim factory partner recycles 98% of their water using reverse osmosis filtration and keeps byproducts out of the environment by mixing them with concrete to create building materials.",
+        "colour": "Brown",
+        "categories": " Gold Piercing, Nose Rings, Silver Rings",
+        "tags": "BirdGold, GemStone"
+    },
+    {
+        "name": "Faceted crystal bracelet",
+        "image": "https://i.ibb.co/KsqQRY6/37042513-20-D2-450x450.webp",
+        "price": 21.00,
+        "items": {
+            "img1": "https://i.ibb.co/FxwdPyR/37042513-20-D8-450x450.webp",
+            "img2": "https://i.ibb.co/r2HCtLg/37042513-20-B-450x450.webp",
+            "img3": "https://i.ibb.co/7bs7gQ0/37002518-40-450x450.webp"
+        },
+        "description": "Safer For The Environment: Our denim factory partner recycles 98% of their water using reverse osmosis filtration and keeps byproducts out of the environment by mixing them with concrete to create building materials.",
+        "colour": "Brown",
+        "categories": " Gold Piercing, Nose Rings, Silver Rings",
+        "tags": "BirdGold, GemStone"
     }
 ]

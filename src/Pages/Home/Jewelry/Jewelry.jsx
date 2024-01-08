@@ -4,6 +4,10 @@ import JewelryCard from './JewelryCard';
 
 const Jewelry = () => {
     const [jewelry] = useJewelry();
+
+    // Use slice(0, 8) to get the first 8 items from the array
+    const slicedJewelry = jewelry.slice(0, 8);
+
     return (
         <div className='lg:flex mx-5 gap-5 mt-20 mb-6'>
             <div className='mb-10'>
@@ -15,11 +19,10 @@ const Jewelry = () => {
                         <p>15 NOV - 25 NOV</p>
                     </div>
                 </div>
-
             </div>
             <div className='grid lg:grid-cols-4 grid-cols-2 lg:gap-7 gap-4'>
                 {
-                    jewelry.map(data => (
+                    slicedJewelry.map(data => (
                         <JewelryCard
                             key={data._id}
                             data={data}
