@@ -3,7 +3,7 @@
 const Newslatter = () => {
     return (
         <div className="border-t-2 border-[#7a7a7a3f]">
-            <div className="lg:flex justify-between items-center mx-4 mb-20 mt-10">
+            <div className="lg:flex justify-between items-center mx-4 mb-8 mt-10">
                 <div className="mb-10">
                     <span className="text-[12px] font-semibold">CUSTOMER SERVICES</span>
                     <h1 className="text-3xl font-semibold py-2">(+777) 450-15-415</h1>

@@ -3,7 +3,7 @@ import CheckoutForm from "../CheckoutForm/CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 import useCart from "../../hooks/useCart";
 import useAuth from "../../hooks/useAuth";
-
+import '../Style/Card.css'
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payments_PK);
 
@@ -23,8 +23,8 @@ const MyPayments = () => {
         date: new Date(),
     };
     return (
-        <div>
-            <div className="my-32 w-6/12 mx-auto">
+        <div className="bg-[#f6f9fc]">
+            <div  className="AppWrapper ">
                 <Elements stripe={stripePromise}>
                     <CheckoutForm paymentInfo={paymentInfo} price={price}></CheckoutForm>
                 </Elements>

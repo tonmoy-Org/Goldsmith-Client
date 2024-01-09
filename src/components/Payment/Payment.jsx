@@ -28,12 +28,12 @@ const Payment = () => {
         <div>
             <div>
                 {total > 0 ? (
-                    <button onClick={handlePayment} className="btn btn-warning w-full my-3">
-                        <Link to='/myPayments'>Pay</Link>
+                    <button onClick={handlePayment} className="btn btn-warning w-full my-3 text-white">
+                        <Link to='/myPayments'>Checkout</Link>
                     </button>
                 ) : (
-                    <button className="btn btn-warning w-full my-3" disabled>
-                        <Link to='/myPayments'>Pay</Link>
+                    <button className="btn btn-warning w-full my-3 text-black" disabled>
+                        <Link to='/myPayments'>Checkout</Link>
                     </button>
                 )}
             </div>
