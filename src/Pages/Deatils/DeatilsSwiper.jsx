@@ -45,7 +45,7 @@ const DetailsSwiper = () => {
             return;
         }
         const cartItem = { price, name, image, item: _id, email: user?.email, userName: user?.displayName }
-        fetch('http://localhost:5000/carts', {
+        fetch('https://goldsmith-server-5v7skvcoj-tonmoy-org.vercel.app/carts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

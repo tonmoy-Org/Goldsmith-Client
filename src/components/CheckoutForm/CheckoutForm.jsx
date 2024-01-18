@@ -53,7 +53,7 @@ const CheckoutForm = ({ price, paymentInfo }) => {
         if (price > 0) {
             const fetchClientSecret = async () => {
                 try {
-                    const response = await fetch("http://localhost:5000/create-payment-intent", {
+                    const response = await fetch("https://goldsmith-server-5v7skvcoj-tonmoy-org.vercel.app/create-payment-intent", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -127,7 +127,7 @@ const CheckoutForm = ({ price, paymentInfo }) => {
                     // Add other relevant data if needed
                 };
 
-                fetch('http://localhost:5000/payments', {
+                fetch('https://goldsmith-server-5v7skvcoj-tonmoy-org.vercel.app/payments', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -321,7 +321,7 @@ const CheckoutForm = ({ price, paymentInfo }) => {
             {error && <div className="text-red-500 mb-4">{error.message}</div>}
 
             <button type="submit" disabled={!stripe || processing} className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md transition duration-300 hover:bg-blue-700 SubmitButton">
-                {processing ? "Processing..." : `Pay ${price}`}
+                {processing ? "Processing..." : `Pay $${price}`}
             </button>
         </form>
     );

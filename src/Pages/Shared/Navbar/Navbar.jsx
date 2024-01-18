@@ -66,7 +66,7 @@ const Navbar = () => {
 
         // Simulate a 3-second delay using setTimeout
         setTimeout(() => {
-            fetch(`http://localhost:5000/jewelry?name=${encodedSearchValue}`)
+            fetch(`https://goldsmith-server-5v7skvcoj-tonmoy-org.vercel.app/jewelry?name=${encodedSearchValue}`)
                 .then((res) => res.json())
                 .then((data) => {
                     navigate(`/search`, { state: { encodedSearchValue, searchResults: data } });
