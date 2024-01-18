@@ -13,6 +13,7 @@ import banner3 from '../../../assets/banner/side-banner.png'
 // import required modules
 import { Autoplay, Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 import './Banner.css'
+import { Link } from 'react-router-dom';
 const Banner = () => {
     return (
         <div className='lg:flex lg:mx-5 gap-6 p-0 mb-10 mt-24 mx-3'>
@@ -45,7 +46,7 @@ const Banner = () => {
                                     Elegance isn't solely defined by what you wear. It's how you carry yourself, how you speak, what you read.
                                 </p>
                                 <br />
-                                <button className="btn">Check Collection</button>
+                                <button className="btn"><Link to='/shop'>Check Collection</Link></button>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -62,7 +63,7 @@ const Banner = () => {
                                     Elegance isn't solely defined by what you wear. It's how you carry yourself, how you speak, what you read.
                                 </p>
                                 <br />
-                                <button className="btn">Check Collection</button>
+                                <button className="btn"><Link to='/shop'>Check Collection</Link></button>
                             </div>
                         </div>
                     </SwiperSlide>

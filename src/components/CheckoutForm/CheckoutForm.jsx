@@ -187,7 +187,7 @@ const CheckoutForm = ({ price, paymentInfo }) => {
             </button>
         </div>
     ) : (
-        <form onSubmit={handleSubmit} className="max-w-xl mx-auto mt-8">
+        <form onSubmit={handleSubmit} className="max-w-xl mx-auto mt-8 mb-14">
             <div>
                 <label className="mt-5 mb-3 text-lg font-bold">
                     Payment details

@@ -5,7 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const JewelryCard = ({ data }) => {
     const { _id, image, name, price, description, categories, tags, items } = data;
@@ -78,7 +78,7 @@ const JewelryCard = ({ data }) => {
                             <dialog id={`my_modal_${_id}`} className="modal">
                                 <div className="modal-box w-11/12 max-w-5xl rounded-none lg:p-6">
                                     <div className='grid lg:grid-cols-2'>
-                                        <div className='mx-auto' style={{ width: '88%', height: 'auto' }}>
+                                        <div className='flex' style={{ width: '88%', height: 'auto' }}>
                                             <Carousel >
                                                 <div>
                                                     <img src={items.img1} style={{ width: '100%', height: 'auto' }} />
@@ -109,6 +109,11 @@ const JewelryCard = ({ data }) => {
                                                     <p className="item-tags font-semibold text-black"><span className='text-[#7D7D7D] text-[18px]'>Tags: </span>{tags}</p>
                                                 )}
                                             </div>
+
+                                            <div className='mt-10'>
+                                                <button className="bg-black text-white font-semibold py-2 px-7 border border-white hover:border-transparent rounded"><Link to={`/details/${_id}`}>Read more</Link></button>
+                                            </div>
+
                                         </div>
                                     </div>
                                     <div className="modal-action">

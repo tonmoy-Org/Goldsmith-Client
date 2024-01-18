@@ -10,13 +10,11 @@ import { useState } from "react";
 
 
 
-
 const Navbar = () => {
     const navigate = useNavigate()
     const { user, logOut } = useAuth();
     const [carts] = useCart();
     const total = carts.reduce((sum, item) => item.price + sum, 0).toFixed(2);
-    const [isModalOpen, setModalOpen] = useState(false);
     const [isLoading, setLoading] = useState(false);
 
 
@@ -72,7 +70,7 @@ const Navbar = () => {
                 .then((res) => res.json())
                 .then((data) => {
                     navigate(`/search`, { state: { encodedSearchValue, searchResults: data } });
-                    
+
                 })
                 .finally(() => setLoading(false)); // Set loading to false after fetch completion
         }, 3000);
@@ -103,9 +101,8 @@ const Navbar = () => {
                                 <div>
                                     <li><Link to='/'>Home</Link></li>
                                     <li><Link to='/shop'>Shop</Link></li>
-                                    <li><Link to='/myjewelry'>My Jewelry</Link></li>
-                                    <li><a>Add jewelry</a></li>
-                                    <li><a>Blogs</a></li>
+                                    <li><Link to='/'>Pages</Link></li>
+                                    <li><Link to='/'>Blogs</Link></li>
                                 </div>
                             </div>
                         </div>
@@ -115,9 +112,8 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal lg:px-8">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/shop'>Shop</Link></li>
-                        <li><Link to='/myjewelry'>My Jewelry</Link></li>
-                        <li><a>Add jewelry</a></li>
-                        <li><a>Blogs</a></li>
+                        <li><Link to='/'>Pages</Link></li>
+                        <li><Link to='/'>Blogs</Link></li>
                     </ul>
                 </div>
             </div>
@@ -269,9 +265,11 @@ const Navbar = () => {
                                             <span className="badge bg-primary text-white">New</span>
                                         </p>
                                     </li>
-                                    <li><Link to='/profile'>Profile</Link></li>
                                     <li><Link to='/'>Home</Link></li>
-                                    <li><Link className="btn btn-error btn-sm" onClick={handleLogOut}>Logout</Link></li>
+                                    <li><Link to='/profile'>Profile</Link></li>
+                                    <li><Link to='/myjewelry'>My Jewelry</Link></li>
+                                    <li><a>Add jewelry</a></li>
+                                    <li><Link className="btn btn-error btn-sm mt-4" onClick={handleLogOut}>Logout</Link></li>
                                 </div>
                             </div>
                         </div>

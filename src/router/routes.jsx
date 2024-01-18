@@ -10,6 +10,7 @@ import MyJewelry from "../Pages/MyJewelry/MyJewelry";
 import PrivateRoute from "./PrivateRouter";
 import MyPayments from "../components/MyPayments/MyPayments";
 import Search from "../Pages/Home/Search/Search";
+import Details from "../Pages/Deatils/Details";
 
 const router = createBrowserRouter([
     {
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
             {
                 path:'/search',
                 element: <Search></Search>
+            },
+            {
+                path: 'details/:id',
+                element: <Details></Details>,
+                loader: ({params}) => fetch(`http://localhost:5000/jewelry/${params.id}`)
             }
         ]
     },

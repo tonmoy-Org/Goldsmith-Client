@@ -3,23 +3,11 @@ import shop2 from '../../assets/section-banner/shop-2.png';
 import useJewelry from '../../hooks/useJewelry';
 import ShopCard from './ShopCard';
 import Newslatter from '../Newslatter/Newslatter';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const AllJewelry = () => {
-    const [jewelry, loading] = useJewelry();
-    const [showLoader, setShowLoader] = useState(true);
+    const [jewelry] = useJewelry();
 
-    useEffect(() => {
-        const loaderTimeout = setTimeout(() => {
-            // Hide the loader after 2000 milliseconds (2 seconds)
-            setShowLoader(false);
-        }, 2000);
-
-        return () => {
-            // Clear the timeout if the component unmounts before the timeout completes
-            clearTimeout(loaderTimeout);
-        };
-    }, []);
 
     const [filteredJewelry, setFilteredJewelry] = useState([]);
     const [rangeValue, setRangeValue] = useState(0);
@@ -94,7 +82,7 @@ const AllJewelry = () => {
                                 <img className='lg:h-[300px] lg:w-[980px] transition-transform transform hover:scale-110 rounded-lg object-cover' src={shop2} alt="" />
                             </div>
                         </div>
-                        {showLoader ? (
+                        {jewelry?.length === 0 ? (
                             <p className="w-16 mx-auto mt-40">
                                 <span className="loading loading-dots w-20"></span>
                             </p>

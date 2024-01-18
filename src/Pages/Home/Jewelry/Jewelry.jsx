@@ -1,25 +1,10 @@
-import React, { useState, useEffect } from 'react';
 import banner2 from '../../../assets/section-banner/banner-1.png';
 import useJewelry from '../../../hooks/useJewelry';
 import JewelryCard from './JewelryCard';
 
 const Jewelry = () => {
-    const [jewelry, loading] = useJewelry();
-    const [showLoader, setShowLoader] = useState(true);
+    const [jewelry] = useJewelry();
 
-    useEffect(() => {
-        const loaderTimeout = setTimeout(() => {
-            // Hide the loader after 2000 milliseconds (2 seconds)
-            setShowLoader(false);
-        }, 2000);
-
-        return () => {
-            // Clear the timeout if the component unmounts before the timeout completes
-            clearTimeout(loaderTimeout);
-        };
-    }, []);
-
-    // Use slice(0, 8) to get the first 8 items from the array
     const slicedJewelry = jewelry.slice(0, 8);
 
     return (
@@ -34,7 +19,7 @@ const Jewelry = () => {
                     </div>
                 </div>
             </div>
-            {showLoader ? (
+            {jewelry?.length === 0 ? (
                 <p className="w-16 mx-auto mt-40">
                     <span className="loading loading-dots w-20"></span>
                 </p>
