@@ -71,16 +71,12 @@ const Navbar = () => {
             fetch(`http://localhost:5000/jewelry?name=${encodedSearchValue}`)
                 .then((res) => res.json())
                 .then((data) => {
-                    // Pass the encoded search value and search results to the Search component
                     navigate(`/search`, { state: { encodedSearchValue, searchResults: data } });
-                    setModalOpen(false); // Close the modal after search
+                    
                 })
                 .finally(() => setLoading(false)); // Set loading to false after fetch completion
         }, 3000);
     };
-
-
-
 
 
     return (
@@ -129,50 +125,36 @@ const Navbar = () => {
             <div className="navbar-end lg:px-8 px-2">
                 <div className="flex items-center lg:gap-3">
                     <div>
-                        {/* You can open/close the modal using state */}
-                        <button className="btn btn-circle bg-white" onClick={() => setModalOpen(true)}>
+                        {/* You can open the modal using document.getElementById('ID').showModal() method */}
+                        <button className="btn btn-circle bg-white" onClick={() => document.getElementById('my_modal_4').showModal()}>
                             {isLoading ? (
                                 <span className="loading loading-dots loading-lg"></span>
                             ) : (
                                 <img className="w-7 h-7" src={search} alt="Search Icon" />
                             )}
                         </button>
-                        {isModalOpen && (
-                            <dialog id="my_modal_4" className="modal transition duration-500 ease-in-out" open>
-                                <div className="modal-box w-full rounded-none transition duration-500 ease-in-out max-w-full absolute top-0">
-                                    <div className="form-control lg:w-4/12 lg:mx-auto me-16">
-                                        <form className="flex items-center lg:gap-3 gap-4" onSubmit={handleSearch}>
-                                            <button type="submit" value="search" className="bg-white">
-                                                {isLoading ? (
-                                                    <span className="loading loading-dots mt-2 w-10"></span>
-                                                ) : (
-                                                    <img className="w-9" src={search} alt="Search Icon" />
-                                                )}
-                                            </button>
-                                            <input
-                                                type="text"
-                                                name="search"
-                                                placeholder="Search"
-                                                className="border-2 border-gray-300 ps-3 py-2 rounded-none focus:outline-none focus:border-black"
-                                                required
-                                            />
-                                        </form>
-                                    </div>
-                                    <div className="modal-action">
-                                        <form method="dialog">
-                                            {/* Close the modal on button click */}
-                                            <button
-                                                type="button"
-                                                className="text-[20px] text-center absolute lg:right-40 right-10 top-7 lg:top-6"
-                                                onClick={() => setModalOpen(false)}
-                                            >
-                                                ✕
-                                            </button>
-                                        </form>
-                                    </div>
+                        <dialog id="my_modal_4" className="modal">
+                            <div className="modal-box w-full rounded-none transition duration-200 ease-in-out max-w-full absolute top-0">
+                                <div className="form-control lg:w-4/12 lg:mx-auto me-16">
+                                    <form className="flex items-center lg:gap-3 gap-4" onSubmit={handleSearch}>
+                                        <button type="submit" value="search" className="bg-white flex items-center">
+                                            {isLoading ? (
+                                                <span className="loading loading-dots w-10"></span>
+                                            ) : (
+                                                <img className="w-9" src={search} alt="Search Icon" />
+                                            )}
+                                        </button>
+                                        <input type="text" name="search" placeholder="Search" className="border-2 border-gray-300 ps-3 py-2 rounded-none focus:outline-none focus:border-black"
+                                            required />
+                                    </form>
                                 </div>
-                            </dialog>
-                        )}
+                                <div className="modal-action">
+                                    <form method="dialog">
+                                        <button className="text-[20px] text-center absolute lg:right-40 right-10 top-7 lg:top-6">✕</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </dialog>
                     </div>
 
                     <div className="drawer drawer-end">

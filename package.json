@@ -28,6 +28,7 @@
     "react-router-dom": "^6.21.2",
     "react-type-animation": "^3.2.0",
     "redux": "^4.2.1",
+    "reoverlay": "^1.0.3",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.7.32",
     "swiper": "^10.3.1",
