@@ -102,7 +102,7 @@ const AllJewelry = () => {
                             (<div>
                                 <div className='mt-4'>
                                     <div className='text-center'>
-                                        <label>Showing 1–{displayedProducts} of {jewelry.length} results</label>
+                                        <label className="font-semibold">Showing 1–{displayedProducts} of {jewelry.length} results</label>
                                     </div>
                                     <div className='grid lg:grid-cols-4 grid-cols-2 lg:gap-7 gap-4 mt-4'>
                                         {filteredJewelry.length === 0
