@@ -147,7 +147,7 @@ const DetailsSwiper = () => {
     return (
         <div>
             <Swiper
-                slidesPerView={1}
+                slidesPerView={2}
                 spaceBetween={10}
                 // navigation={true}
                 autoplay={{

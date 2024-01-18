@@ -11,7 +11,7 @@ const Details = () => {
 
     return (
         <div>
-            <div className='grid lg:grid-cols-2 mx-24 my-28'>
+            <div className='grid lg:grid-cols-2 lg:mx-24 lg:my-28 my-20 mx-3'>
                 <div className='flex' style={{ width: '88%', height: 'auto' }}>
                     <Carousel>
                         <div>
@@ -51,7 +51,7 @@ const Details = () => {
                     </div>
                 </div>
             </div>
-            <div className="mb-24 mx-8">
+            <div className="mb-24 lg:mx-8 mx-4">
                 <h1 className="text-[25px] font-semibold my-5">You May Also Like</h1>
                 <div>
                     <DetailsSwiper></DetailsSwiper>
