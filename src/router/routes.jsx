@@ -9,6 +9,7 @@ import AllJewelry from "../Pages/AllJewelry/AllJewelry";
 import MyJewelry from "../Pages/MyJewelry/MyJewelry";
 import PrivateRoute from "./PrivateRouter";
 import MyPayments from "../components/MyPayments/MyPayments";
+import Search from "../Pages/Home/Search/Search";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path: '/myPayments', // Correct path here
                 element: <MyPayments></MyPayments>
+            },
+            {
+                path:'/search',
+                element: <Search></Search>
             }
         ]
     },

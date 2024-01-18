@@ -1,16 +1,5 @@
 /* These styles are used if a demo specific stylesheet is not present */
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-
-form {
-  max-width: 800px;
-  margin: 80px auto;
-}
 
 label {
   color: black;

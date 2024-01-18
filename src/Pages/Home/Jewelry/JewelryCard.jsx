@@ -38,7 +38,7 @@ const JewelryCard = ({ data }) => {
             return;
         }
         const cartItem = { price, name, image, item: _id, email: user?.email, userName: user?.displayName }
-        fetch('https://goldsmith-server.vercel.app/carts', {
+        fetch('http://localhost:5000/carts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -114,7 +114,7 @@ const JewelryCard = ({ data }) => {
                                     <div className="modal-action">
                                         <form method="dialog">
                                             {/* if there is a button in the form, it will close the modal */}
-                                            <button className="btn btn-sm">Close</button>
+                                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                         </form>
                                     </div>
                                 </div>

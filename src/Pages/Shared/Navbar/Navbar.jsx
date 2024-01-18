@@ -1,14 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import close from '../../../assets/icon/close.png'
 import useCart from "../../../hooks/useCart";
 import { Bars3Icon } from '@heroicons/react/24/solid'
 import CartItems from "../../../components/CartItems/CartItems";
 import Payment from "../../../components/Payment/Payment";
+import search from "../../../assets/icon/search.png"
+
 
 
 
 const Navbar = () => {
+    const navigate = useNavigate()
     const { user, logOut } = useAuth();
     const [carts] = useCart();
     const total = carts.reduce((sum, item) => item.price + sum, 0).toFixed(2);
@@ -46,6 +49,21 @@ const Navbar = () => {
             drawerCheckbox.checked = false;
         }
     }
+
+
+
+    const handleSearch = (event) => {
+        event.preventDefault();
+        const searchValue = event.target.search.value;
+
+        fetch(`http://localhost:5000/jewelry?name=${searchValue}`)
+            .then((res) => res.json())
+            .then((data) => {
+                navigate(`/search?results=${encodeURIComponent(JSON.stringify(data))}`);
+            });
+    };
+
+
     return (
         <div className="navbar fixed top-0 z-10 bg-white font-semibold border-b-2 border-[#7A7A7A] duration-1000">
             <div className="navbar-start">
@@ -90,10 +108,33 @@ const Navbar = () => {
             </div>
             <a className="btn btn-ghost normal-case text-xl font-bold">GOLDSMITH</a>
             <div className="navbar-end lg:px-8 px-2">
-                <div>
+                <div className="flex items-center lg:gap-3">
+                    <div>
+                        {/* You can open the modal using document.getElementById('ID').showModal() method */}
+                        <button className="btn btn-circle bg-white" onClick={() => document.getElementById('my_modal_4').showModal()}><img className="w-7 h-7" src={search}></img></button>
+                        <dialog id="my_modal_4" className="modal transition duration-500 ease-in-out">
+                            <div className="modal-box w-full rounded-none transition duration-500 ease-in-out max-w-full absolute top-0">
+                                <div className="form-control lg:w-4/12 lg:mx-auto me-16">
+                                    <form className="flex items-center lg:gap-3 gap-4" onSubmit={handleSearch}>
+                                        <button type="submit" value="search" className=" bg-white">
+                                            <img className="w-9" src={search}></img>
+                                        </button>
+                                        <input type="text" name="search" placeholder="Search" className="border-2 border-gray-300 ps-3 py-2 rounded-none focus:outline-none focus:border-black"
+                                            required />
+                                    </form>
+                                </div>
+                                <div className="modal-action">
+                                    <form method="dialog">
+                                        {/* if there is a button, it will close the modal */}
+                                        <button className="text-[20px] text-center absolute lg:right-40 right-10 top-7 lg:top-6">✕</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </dialog>
+                    </div>
                     <div className="drawer drawer-end">
                         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-                        <div className="drawer-content pe-4">
+                        <div className="drawer-content pe-2">
                             {/* Page content here */}
                             <label htmlFor="my-drawer-4" className="drawer-button btn btn-ghost btn-circle">
                                 <div className="indicator">
