@@ -86,7 +86,7 @@ const DetailsSwiper = () => {
                                     <div className="modal-box lg:max-w-5xl rounded-none p-0 w-11/12">
                                         <div className='grid lg:grid-cols-2 gap-4'>
                                             <div className='flex' style={{ width: '100%', height: 'auto' }}>
-                                                <Carousel className='w-[290px] lg:w-11/12  mx-auto mt-8'>
+                                                <Carousel className='w-[290px] lg:w-10/12 mx-auto mt-8'>
                                                     <div>
                                                         <img src={data.items.img1} style={{ width: '100%', height: 'auto' }} />
                                                     </div>
