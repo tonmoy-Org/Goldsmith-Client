@@ -78,11 +78,11 @@ const ShopCard = ({ data }) => {
                             <button className="btn rounded-full bg-white py-[7px] px-4 transition-opacity" onClick={() => showModal(_id, name, description, categories, tags)}>
                                 <img className='w-6' src={view} alt="" />
                             </button>
-                            <dialog id={`my_modal_${_id}`} className="modal">
-                                <div className="modal-box w-11/12 max-w-5xl rounded-none lg:p-6">
-                                    <div className='grid lg:grid-cols-2'>
-                                        <div className='flex' style={{ width: '88%', height: 'auto' }}>
-                                            <Carousel className='w-[295px] mt-3'>
+                            <dialog id={`my_modal_${_id}`} className="modal p-0">
+                                <div className="modal-box w-11/12 max-w-5xl rounded-none lg:p-6 p-0 mx-auto">
+                                    <div className='grid lg:grid-cols-2 gap-4'>
+                                        <div className='flex' style={{ width: '100%', height: 'auto' }}>
+                                            <Carousel className='w-[290px] lg:w-11/12  mx-auto mt-8'>
                                                 <div>
                                                     <img src={items.img1} style={{ width: '100%', height: 'auto' }} />
                                                 </div>
@@ -94,8 +94,8 @@ const ShopCard = ({ data }) => {
                                                 </div>
                                             </Carousel>
                                         </div>
-                                        <div>
-                                            <h1 className="font-semibold text-2xl">{name}</h1>
+                                        <div className='p-4'>
+                                            <h1 className="font-semibold text-2xl mt-5">{name}</h1>
                                             <h2 className='py-3 text-base-400 text-xl'>${price}</h2>
                                             <p className="item-description py-4 text-[#7D7D7D]">{description}</p>
                                             <div className='pt-3'>
