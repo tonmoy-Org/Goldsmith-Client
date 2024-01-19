@@ -118,7 +118,7 @@ const Navbar = () => {
                 </div>
             </div>
             <a className="btn btn-ghost normal-case text-xl font-bold">GOLDSMITH</a>
-            <div className="navbar-end lg:px-8 px-2">
+            <div className="navbar-end px-8">
                 <div className="flex items-center lg:gap-3">
                     <div>
                         {/* You can open the modal using document.getElementById('ID').showModal() method */}
