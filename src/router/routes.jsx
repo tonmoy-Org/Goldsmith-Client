@@ -48,7 +48,7 @@ const router = createBrowserRouter([
             {
                 path: 'details/:id',
                 element: <Details></Details>,
-                loader: ({params}) => fetch(`https://goldsmith-server-5v7skvcoj-tonmoy-org.vercel.app/jewelry/${params.id}`)
+                loader: ({params}) => fetch(`https://goldsmith-server.vercel.app/jewelry/${params.id}`)
             }
         ]
     },

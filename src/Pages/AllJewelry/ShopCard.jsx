@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
 
@@ -17,7 +17,7 @@ const ShopCard = ({ data }) => {
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/login";
 
-  
+
     const showModal = (_id, name, description, categories, tags, image) => {
         const modal = document.getElementById(`my_modal_${_id}`);
 
@@ -41,7 +41,7 @@ const ShopCard = ({ data }) => {
             return;
         }
         const cartItem = { price, name, image, item: _id, email: user?.email, userName: user?.displayName }
-        fetch('https://goldsmith-server-5v7skvcoj-tonmoy-org.vercel.app/carts', {
+        fetch('https://goldsmith-server.vercel.app/carts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -82,7 +82,7 @@ const ShopCard = ({ data }) => {
                                 <div className="modal-box w-11/12 max-w-5xl rounded-none lg:p-6">
                                     <div className='grid lg:grid-cols-2'>
                                         <div className='flex' style={{ width: '88%', height: 'auto' }}>
-                                            <Carousel >
+                                            <Carousel className='w-[295px] mt-3'>
                                                 <div>
                                                     <img src={items.img1} style={{ width: '100%', height: 'auto' }} />
                                                 </div>
@@ -112,12 +112,17 @@ const ShopCard = ({ data }) => {
                                                     <p className="item-tags font-semibold text-black"><span className='text-[#7D7D7D] text-[18px]'>Tags: </span>{tags}</p>
                                                 )}
                                             </div>
+
+                                            <div className='mt-10'>
+                                                <button className="bg-black text-white font-semibold py-2 px-7 border border-white hover:border-transparent rounded"><Link to={`/details/${_id}`}>Read more</Link></button>
+                                            </div>
+
                                         </div>
                                     </div>
                                     <div className="modal-action">
                                         <form method="dialog">
                                             {/* if there is a button in the form, it will close the modal */}
-                                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                            <button className="btn btn-sm btn-circle btn-ghost absolute right-1 top-0">✕</button>
                                         </form>
                                     </div>
                                 </div>

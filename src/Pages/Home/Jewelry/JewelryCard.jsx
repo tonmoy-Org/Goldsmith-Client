@@ -38,7 +38,7 @@ const JewelryCard = ({ data }) => {
             return;
         }
         const cartItem = { price, name, image, item: _id, email: user?.email, userName: user?.displayName }
-        fetch('https://goldsmith-server-5v7skvcoj-tonmoy-org.vercel.app/carts', {
+        fetch('https://goldsmith-server.vercel.app/carts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -79,7 +79,7 @@ const JewelryCard = ({ data }) => {
                                 <div className="modal-box w-11/12 max-w-5xl rounded-none lg:p-6">
                                     <div className='grid lg:grid-cols-2'>
                                         <div className='flex' style={{ width: '88%', height: 'auto' }}>
-                                            <Carousel >
+                                            <Carousel className='w-[295px] mt-3'>
                                                 <div>
                                                     <img src={items.img1} style={{ width: '100%', height: 'auto' }} />
                                                 </div>
@@ -119,7 +119,7 @@ const JewelryCard = ({ data }) => {
                                     <div className="modal-action">
                                         <form method="dialog">
                                             {/* if there is a button in the form, it will close the modal */}
-                                            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                            <button className="btn btn-sm btn-circle btn-ghost absolute right-1 top-0">✕</button>
                                         </form>
                                     </div>
                                 </div>

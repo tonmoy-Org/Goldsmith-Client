@@ -4,7 +4,7 @@ const useJewelry = () => {
     const { data: jewelry = [], refetch } = useQuery(
         ['jewelry'],
         async () => {
-            const res = await fetch(`https://goldsmith-server-5v7skvcoj-tonmoy-org.vercel.app/jewelry`);
+            const res = await fetch(`https://goldsmith-server.vercel.app/jewelry`);
             return res.json();
         },
         {
