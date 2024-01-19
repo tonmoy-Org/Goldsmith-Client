@@ -27,6 +27,7 @@
     "react-query": "^3.39.3",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.21.2",
+    "react-router-loader": "^0.5.4",
     "react-type-animation": "^3.2.0",
     "redux": "^4.2.1",
     "reoverlay": "^1.0.3",

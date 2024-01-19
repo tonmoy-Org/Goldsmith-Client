@@ -11,43 +11,45 @@ const Details = () => {
 
     return (
         <div>
-            <div className='grid lg:grid-cols-2 lg:mx-24 lg:my-28 my-20 mx-3'>
-                <div className='flex' style={{ width: '88%', height: 'auto' }}>
-                    <Carousel>
-                        <div>
-                            <img src={image} style={{ width: '100%', height: 'auto' }} />
-                        </div>
-                        <div>
-                            <img src={items.img1} style={{ width: '100%', height: 'auto' }} />
-                        </div>
-                        <div>
-                            <img src={items.img2} style={{ width: '100%', height: 'auto' }} />
-                        </div>
-                        <div>
-                            <img src={items.img3} style={{ width: '100%', height: 'auto' }} />
-                        </div>
-                    </Carousel>
-                </div>
-                <div>
-                    <div className="mb-8">
-                        <p className="uppercase font-semibold text-[13px]">HOME - PRODUCTS - <span>{name}</span></p>
+            <div className="p-0">
+                <div className='grid lg:grid-cols-2  lg:mx-24 lg:my-20 my-16'>
+                    <div className='flex' style={{ width: '100%', height: 'auto' }}>
+                        <Carousel className='w-[340px] lg:w-11/12  mx-auto mt-8'>
+                            <div>
+                                <img src={image} style={{ width: '100%', height: 'auto' }} />
+                            </div>
+                            <div>
+                                <img src={items.img1} style={{ width: '100%', height: 'auto' }} />
+                            </div>
+                            <div>
+                                <img src={items.img2} style={{ width: '100%', height: 'auto' }} />
+                            </div>
+                            <div>
+                                <img src={items.img3} style={{ width: '100%', height: 'auto' }} />
+                            </div>
+                        </Carousel>
                     </div>
-                    <h1 className="font-bold text-4xl">{name}</h1>
-                    <h2 className='py-3 text-base-400 text-xl'>${price}.00</h2>
-                    <p className="item-description py-4 text-[#7D7D7D]">{description}</p>
-                    <div className='pt-3'>
-                        {Array.isArray(categories) ? (
-                            <p className="item-categories font-semibold text-black"><span className='text-[#7D7D7D] text-[18px]'>Categories: </span> {categories.join(", ")}</p>
-                        ) : (
-                            <p className="item-categories font-semibold text-black"><span className='text-[#7D7D7D] text-[18px]'>Categories: </span>{categories}</p>
-                        )}
-                    </div>
-                    <div className='pt-3'>
-                        {Array.isArray(tags) ? (
-                            <p className="item-tags font-semibold text-black"><span className='text-[#7D7D7D] text-[18px]'>Tags: </span>{tags.join(", ")}</p>
-                        ) : (
-                            <p className="item-tags font-semibold text-black"><span className='text-[#7D7D7D] text-[18px]'>Tags: </span>{tags}</p>
-                        )}
+                    <div className="p-4 mt-8">
+                        <div className="mb-8">
+                            <p className="uppercase font-semibold text-[13px]">HOME - PRODUCTS - <span>{name}</span></p>
+                        </div>
+                        <h1 className="font-bold text-4xl">{name}</h1>
+                        <h2 className='py-3 text-base-400 text-xl'>${price}.00</h2>
+                        <p className="item-description py-4 text-[#7D7D7D]">{description}</p>
+                        <div className='pt-3'>
+                            {Array.isArray(categories) ? (
+                                <p className="item-categories font-semibold text-black"><span className='text-[#7D7D7D] text-[18px]'>Categories: </span> {categories.join(", ")}</p>
+                            ) : (
+                                <p className="item-categories font-semibold text-black"><span className='text-[#7D7D7D] text-[18px]'>Categories: </span>{categories}</p>
+                            )}
+                        </div>
+                        <div className='pt-3'>
+                            {Array.isArray(tags) ? (
+                                <p className="item-tags font-semibold text-black"><span className='text-[#7D7D7D] text-[18px]'>Tags: </span>{tags.join(", ")}</p>
+                            ) : (
+                                <p className="item-tags font-semibold text-black"><span className='text-[#7D7D7D] text-[18px]'>Tags: </span>{tags}</p>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

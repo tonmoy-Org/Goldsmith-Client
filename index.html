@@ -11,3 +11,70 @@
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/src/assets/icon/diamond.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goldsmith</title>
+  <style>
+    /* Add your loader styling here */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Display loader when the page loads
+      showLoader();
+
+      // Simulate a 5-second delay (you can replace this with actual page loading logic)
+      setTimeout(function () {
+        // Hide loader after 5 seconds
+        hideLoader();
+      }, 4000);
+    });
+
+    // Listen for beforeunload event to show loader on page reload
+    window.addEventListener("beforeunload", function () {
+      showLoader();
+    });
+
+    // Listen for popstate event to show loader when navigating between routes
+    window.addEventListener("popstate", function () {
+      showLoader();
+    });
+
+    function showLoader() {
+      // Create and append loader to the body
+      var loader = document.createElement("div");
+      loader.id = "loader";
+      loader.innerHTML = '<span class="loading loading-dots loading-lg w-24"></span>';
+      document.body.appendChild(loader);
+    }
+
+    function hideLoader() {
+      // Remove the loader from the DOM
+      var loader = document.getElementById("loader");
+      loader.parentNode.removeChild(loader);
+    }
+  </script>
+</body>
+
+</html>
