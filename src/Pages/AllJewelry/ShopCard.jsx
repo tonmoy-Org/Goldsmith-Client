@@ -6,6 +6,7 @@ import useAuth from '../../hooks/useAuth';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 
 
@@ -62,6 +63,17 @@ const ShopCard = ({ data }) => {
             })
     }
 
+    const [loading, setLoading] = useState(false);
+
+    const handleReadMore = () => {
+        setLoading(true);
+
+        setTimeout(() => {
+            setLoading(false);
+            navigate(`/details/${_id}`);
+        }, 4000); // Replace with the actual API call
+    };
+
 
     return (
         <div className='mt-2 lg:mt-0 lg:mx-0 mx-auto'>
@@ -113,9 +125,17 @@ const ShopCard = ({ data }) => {
                                                 )}
                                             </div>
 
-                                            <div className='mt-10'>
-                                                <button className="bg-black text-white font-semibold py-2 px-7 border border-white hover:border-transparent rounded"><Link to={`/details/${_id}`}>Read more</Link></button>
-                                            </div>
+                                            {loading ? (
+                                                <div className="loader-overlay">
+                                                    <div className="loader"></div>
+                                                </div> // Replace with your loader component
+                                            ) : (
+                                                <div className='mt-10'>
+                                                    <button className="bg-black text-white font-semibold py-2 px-7 border border-white hover:border-transparent rounded" onClick={handleReadMore}>
+                                                        Read more
+                                                    </button>
+                                                </div>
+                                            )}
 
                                         </div>
                                     </div>

@@ -7,6 +7,7 @@ import CartItems from "../../../components/CartItems/CartItems";
 import Payment from "../../../components/Payment/Payment";
 import search from "../../../assets/icon/search.png"
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 
 
@@ -20,7 +21,15 @@ const Navbar = () => {
 
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Logout successfully.",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            })
             .catch(error => {
                 console.log(error.message);
             })
@@ -243,7 +252,7 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </label>
-                        </div> : <><Link to='/login' className='lg:me-3 text-[#1890ff]'>Login</Link></>}
+                        </div> : <Link to='/login' className='lg:me-3 btn btn-sm  font-bold text-[#1890ff]'>Login</Link>}
                         <div className="drawer-side z-10">
                             <label htmlFor="my-drawer-5" aria-label="close sidebar" className="drawer-overlay"></label>
                             <div className="menu p-4 lg:w-[450px] w-80 min-h-full bg-white text-base-content">
