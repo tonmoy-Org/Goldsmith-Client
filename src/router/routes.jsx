@@ -12,6 +12,7 @@ import MyPayments from "../components/MyPayments/MyPayments";
 import Search from "../Pages/Home/Search/Search";
 import Details from "../Pages/Deatils/Details";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
+import Profile from "../Pages/Profile/Profile";
 
 const router = createBrowserRouter([
     {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
                 path: 'details/:id',
                 element: <Details></Details>,
                 loader: ({params}) => fetch(`https://goldsmith-server.vercel.app/jewelry/${params.id}`)
+            },
+            {
+                path: 'profile',
+                element: <Profile></Profile>
             }
         ]
     },
