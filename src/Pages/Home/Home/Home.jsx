@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Newslatter from "../../Newslatter/Newslatter";
 import Offer from "../../Offer/Offer";
 import Reflect from "../../Reflect/Reflect";
@@ -11,14 +12,17 @@ import Tags from "../Tags/Tags";
 const Home = () => {
     return (
         <div>
-         <Banner></Banner>
-         <Tags></Tags>
-         <Jewelry></Jewelry>
-         <Offer></Offer>
-         <Reflect></Reflect>
-         <SocialMedia></SocialMedia>
-         <Season></Season>
-         <Newslatter></Newslatter>
+            <Helmet>
+                <title>{`Home - Goldsmith`}</title>
+            </Helmet>
+            <Banner></Banner>
+            <Tags></Tags>
+            <Jewelry></Jewelry>
+            <Offer></Offer>
+            <Reflect></Reflect>
+            <SocialMedia></SocialMedia>
+            <Season></Season>
+            <Newslatter></Newslatter>
         </div>
     );
 };

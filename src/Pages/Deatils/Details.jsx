@@ -3,6 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import Newslatter from "../Newslatter/Newslatter";
 import DetailsSwiper from "./DeatilsSwiper";
+import { Helmet } from "react-helmet";
 
 
 const Details = () => {
@@ -11,6 +12,9 @@ const Details = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>{`Product Details - Goldsmith`}</title>
+            </Helmet>
             <div className="p-0">
                 <div className='grid lg:grid-cols-2  lg:mx-24 lg:my-20 my-16'>
                     <div className='flex' style={{ width: '100%', height: 'auto' }}>

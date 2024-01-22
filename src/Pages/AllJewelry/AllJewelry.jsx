@@ -4,6 +4,7 @@ import useJewelry from '../../hooks/useJewelry';
 import ShopCard from './ShopCard';
 import Newslatter from '../Newslatter/Newslatter';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 const AllJewelry = () => {
     const [jewelry] = useJewelry();
@@ -39,6 +40,9 @@ const AllJewelry = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>{`Shop - Goldsmith`}</title>
+            </Helmet>
             <div>
                 <div className='mt-16 mb-12'>
                     <img className='w-full lg:h-[128px] object-cover' src={shop1} alt="" />

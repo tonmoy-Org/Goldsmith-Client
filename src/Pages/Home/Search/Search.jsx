@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import shop1 from "../../../assets/section-banner/shop-1.png";
 import SearchCard from "./SearchCard";
 import Newslatter from "../../Newslatter/Newslatter";
+import { Helmet } from "react-helmet";
 
 const Search = () => {
     const location = useLocation();
@@ -13,6 +14,9 @@ const Search = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>{`Search - Goldsmith`}</title>
+            </Helmet>
             <div>
                 <div className="mt-16 mb-10">
                     <img className="w-full lg:h-[128px] object-cover" src={shop1} alt="" />

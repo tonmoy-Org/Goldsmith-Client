@@ -3,7 +3,7 @@ import CheckoutForm from "../CheckoutForm/CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 import useCart from "../../hooks/useCart";
 import useAuth from "../../hooks/useAuth";
-import '../Style/Card.css'
+import './Card.css'
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payments_PK);
 

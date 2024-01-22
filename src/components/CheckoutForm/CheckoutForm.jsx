@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import '../Style/common.css';
-import '../Style/Card.css';
+import './Common.css'
 import { useLocation, useNavigate } from "react-router-dom";
 import './Checkout.css'
 import check from '../../assets/icon/check.png'
+import { Helmet } from "react-helmet";
 
 const CARD_OPTIONS = {
     iconStyle: "solid",
@@ -243,148 +243,153 @@ const CheckoutForm = ({ price, paymentInfo }) => {
     ) : (
 
         <div>
-            {processing && (
-                <div className="loader-overlay">
-                    <div className="loader"></div>
-                </div>
-            )}
-            <form onSubmit={handleSubmit} className="max-w-xl mx-auto mt-8 mb-14">
-                <div>
-                    <label className="mt-5 mb-3 text-lg font-bold">
-                        Payment details
-                    </label>
+            <Helmet>
+                <title>{`Payment - Goldsmith`}</title>
+            </Helmet>
+            <div>
+                {processing && (
+                    <div className="loader-overlay">
+                        <div className="loader"></div>
+                    </div>
+                )}
+                <form onSubmit={handleSubmit} className="max-w-xl mx-auto mt-8 mb-14">
                     <div>
-                        <label htmlFor="name">Name</label>
-                        <input
-                            id="name"
-                            type="text"
-                            placeholder="Jane Doe"
-                            required
-                            autoComplete="name"
-                            value={billingDetails.name}
-                            onChange={(e) =>
-                                setBillingDetails({ ...billingDetails, name: e.target.value })
-                            }
-                        />
+                        <label className="mt-5 mb-3 text-lg font-bold">
+                            Payment details
+                        </label>
+                        <div>
+                            <label htmlFor="name">Name</label>
+                            <input
+                                id="name"
+                                type="text"
+                                placeholder="Jane Doe"
+                                required
+                                autoComplete="name"
+                                value={billingDetails.name}
+                                onChange={(e) =>
+                                    setBillingDetails({ ...billingDetails, name: e.target.value })
+                                }
+                            />
+                        </div>
+                        <div className="my-2">
+                            <label htmlFor="email">Email</label>
+                            <input
+                                id="email"
+                                type="email"
+                                placeholder="janedoe@gmail.com"
+                                required
+                                autoComplete="email"
+                                value={billingDetails.email}
+                                onChange={(e) =>
+                                    setBillingDetails({ ...billingDetails, email: e.target.value })
+                                }
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="phone">Phone</label>
+                            <input
+                                id="phone"
+                                type="tel"
+                                placeholder="(941) 555-0123"
+                                required
+                                autoComplete="tel"
+                                value={billingDetails.phone}
+                                onChange={(e) =>
+                                    setBillingDetails({ ...billingDetails, phone: e.target.value })
+                                }
+                            />
+                        </div>
                     </div>
-                    <div className="my-2">
-                        <label htmlFor="email">Email</label>
-                        <input
-                            id="email"
-                            type="email"
-                            placeholder="janedoe@gmail.com"
-                            required
-                            autoComplete="email"
-                            value={billingDetails.email}
-                            onChange={(e) =>
-                                setBillingDetails({ ...billingDetails, email: e.target.value })
-                            }
-                        />
-                    </div>
+
                     <div>
-                        <label htmlFor="phone">Phone</label>
-                        <input
-                            id="phone"
-                            type="tel"
-                            placeholder="(941) 555-0123"
-                            required
-                            autoComplete="tel"
-                            value={billingDetails.phone}
-                            onChange={(e) =>
-                                setBillingDetails({ ...billingDetails, phone: e.target.value })
-                            }
-                        />
-                    </div>
-                </div>
-
-                <div>
-                    <label className="mt-5 mb-3 text-lg font-bold">
-                        Shipping address
-                    </label>
-                    <div className="my-2">
-                        <label htmlFor="line1">Address</label>
-                        <input
-                            id="line1"
-                            type="text"
-                            placeholder="123 Main St"
-                            required
-                            value={shippingAddress.line1}
-                            onChange={(e) =>
-                                setShippingAddress({ ...shippingAddress, line1: e.target.value })
-                            }
-                        />
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <div>
-                            <label htmlFor="city">City</label>
+                        <label className="mt-5 mb-3 text-lg font-bold">
+                            Shipping address
+                        </label>
+                        <div className="my-2">
+                            <label htmlFor="line1">Address</label>
                             <input
-                                id="city"
+                                id="line1"
                                 type="text"
-                                placeholder="City"
+                                placeholder="123 Main St"
                                 required
-                                value={shippingAddress.city}
+                                value={shippingAddress.line1}
                                 onChange={(e) =>
-                                    setShippingAddress({ ...shippingAddress, city: e.target.value })
+                                    setShippingAddress({ ...shippingAddress, line1: e.target.value })
                                 }
                             />
                         </div>
-                        <div>
-                            <label htmlFor="state">State</label>
-                            <input
-                                id="state"
-                                type="text"
-                                placeholder="State"
-                                required
-                                value={shippingAddress.state}
-                                onChange={(e) =>
-                                    setShippingAddress({ ...shippingAddress, state: e.target.value })
-                                }
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="postal_code">Postal Code</label>
-                            <input
-                                id="postal_code"
-                                type="text"
-                                placeholder="12345"
-                                required
-                                value={shippingAddress.postal_code}
-                                onChange={(e) =>
-                                    setShippingAddress({ ...shippingAddress, postal_code: e.target.value })
-                                }
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="country">Country</label>
-                            <input
-                                id="country"
-                                type="text"
-                                placeholder="Country"
-                                required
-                                value={shippingAddress.country}
-                                onChange={(e) =>
-                                    setShippingAddress({ ...shippingAddress, country: e.target.value })
-                                }
-                            />
+                        <div className="grid grid-cols-2 gap-4">
+                            <div>
+                                <label htmlFor="city">City</label>
+                                <input
+                                    id="city"
+                                    type="text"
+                                    placeholder="City"
+                                    required
+                                    value={shippingAddress.city}
+                                    onChange={(e) =>
+                                        setShippingAddress({ ...shippingAddress, city: e.target.value })
+                                    }
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="state">State</label>
+                                <input
+                                    id="state"
+                                    type="text"
+                                    placeholder="State"
+                                    required
+                                    value={shippingAddress.state}
+                                    onChange={(e) =>
+                                        setShippingAddress({ ...shippingAddress, state: e.target.value })
+                                    }
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="postal_code">Postal Code</label>
+                                <input
+                                    id="postal_code"
+                                    type="text"
+                                    placeholder="12345"
+                                    required
+                                    value={shippingAddress.postal_code}
+                                    onChange={(e) =>
+                                        setShippingAddress({ ...shippingAddress, postal_code: e.target.value })
+                                    }
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="country">Country</label>
+                                <input
+                                    id="country"
+                                    type="text"
+                                    placeholder="Country"
+                                    required
+                                    value={shippingAddress.country}
+                                    onChange={(e) =>
+                                        setShippingAddress({ ...shippingAddress, country: e.target.value })
+                                    }
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="mb-8">
-                    <label className="mt-5 mb-3 text-lg font-bold">
-                        Card information
-                    </label>
-                    <div className="mt-1">
-                        <CardElement options={CARD_OPTIONS} onChange={(e) => setCardComplete(e.complete)} className="p-2 border rounded-md" />
+                    <div className="mb-8">
+                        <label className="mt-5 mb-3 text-lg font-bold">
+                            Card information
+                        </label>
+                        <div className="mt-1">
+                            <CardElement options={CARD_OPTIONS} onChange={(e) => setCardComplete(e.complete)} className="p-2 border rounded-md" />
+                        </div>
                     </div>
-                </div>
 
-                {error && <div className="text-red-500 mb-4">{error.message}</div>}
+                    {error && <div className="text-red-500 mb-4">{error.message}</div>}
 
-                <button type="submit" disabled={!stripe || processing} className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md transition duration-300 hover:bg-blue-700 SubmitButton">
-                    {processing ? "Processing..." : `Pay $${price}`}
-                </button>
-            </form>
+                    <button type="submit" disabled={!stripe || processing} className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md transition duration-300 hover:bg-blue-700 SubmitButton">
+                        {processing ? "Processing..." : `Pay $${price}`}
+                    </button>
+                </form>
+            </div>
         </div>
     );
 };
