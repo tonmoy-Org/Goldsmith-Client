@@ -46,7 +46,9 @@ const Banner = () => {
                                     Elegance isn't solely defined by what you wear. It's how you carry yourself, how you speak, what you read.
                                 </p>
                                 <br />
-                                <button className="btn"><Link to='/shop'>Check Collection</Link></button>
+                                <button className="bg-transparent hover:bg-white hover:text-black text-white font-semibold py-2 px-7 border border-white hover:border-transparent rounded">
+                                    View all leather products
+                                </button>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -63,7 +65,9 @@ const Banner = () => {
                                     Elegance isn't solely defined by what you wear. It's how you carry yourself, how you speak, what you read.
                                 </p>
                                 <br />
-                                <button className="btn"><Link to='/shop'>Check Collection</Link></button>
+                                <button className="bg-transparent hover:bg-white hover:text-black text-white font-semibold py-2 px-7 border border-white hover:border-transparent rounded">
+                                    View all leather products
+                                </button>
                             </div>
                         </div>
                     </SwiperSlide>
