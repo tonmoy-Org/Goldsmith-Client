@@ -128,38 +128,40 @@ const Navbar = () => {
             </div>
             <a className="btn btn-ghost normal-case text-xl font-bold">GOLDSMITH</a>
             <div className="navbar-end px-8">
-                <div className="flex items-center lg:gap-3">
-                    <div>
-                        {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                        <button className="btn btn-circle bg-white" onClick={() => document.getElementById('my_modal_4').showModal()}>
-                            {isLoading ? (
-                                <span className="loading loading-dots loading-lg"></span>
-                            ) : (
-                                <img className="w-7 h-7" src={search} alt="Search Icon" />
-                            )}
-                        </button>
-                        <dialog id="my_modal_4" className="modal">
-                            <div className="modal-box w-full rounded-none transition duration-200 ease-in-out max-w-full absolute top-0">
-                                <div className="form-control lg:w-4/12 lg:mx-auto me-16">
-                                    <form className="flex items-center lg:gap-3 gap-4" onSubmit={handleSearch}>
-                                        <button type="submit" value="search" className="bg-white flex items-center">
-                                            {isLoading ? (
-                                                <span className="loading loading-dots w-10"></span>
-                                            ) : (
-                                                <img className="w-9" src={search} alt="Search Icon" />
-                                            )}
-                                        </button>
-                                        <input type="text" name="search" placeholder="Search" className="border-2 border-gray-300 ps-3 py-2 rounded-none focus:outline-none focus:border-black"
-                                            required />
-                                    </form>
+                <div className="flex items-center lg:pe-3">
+                    
+                    <div className="dropdown dropdown-end">
+                        <div>
+                            <button className="btn btn-circle btn-ghost" onClick={() => document.getElementById('my_modal_4').showModal()}>
+                                {isLoading ? (
+                                    <span className="loading loading-dots loading-lg"></span>
+                                ) : (
+                                    <img className="w-7 h-7" src={search} alt="Search Icon" />
+                                )}
+                            </button>
+                            <dialog id="my_modal_4" className="modal">
+                                <div className="modal-box w-full rounded-none transition duration-200 ease-in-out max-w-full absolute top-0">
+                                    <div className="form-control lg:w-4/12 lg:mx-auto me-16">
+                                        <form className="flex items-center lg:gap-3 gap-4" onSubmit={handleSearch}>
+                                            <button type="submit" value="search" className="bg-white flex items-center">
+                                                {isLoading ? (
+                                                    <span className="loading loading-dots w-10"></span>
+                                                ) : (
+                                                    <img className="w-9" src={search} alt="Search Icon" />
+                                                )}
+                                            </button>
+                                            <input type="text" name="search" placeholder="Search" className="border-2 border-gray-300 ps-3 py-2 rounded-none focus:outline-none focus:border-black"
+                                                required />
+                                        </form>
+                                    </div>
+                                    <div className="modal-action">
+                                        <form method="dialog">
+                                            <button className="text-[20px] text-center absolute lg:right-40 right-10 top-7 lg:top-6">✕</button>
+                                        </form>
+                                    </div>
                                 </div>
-                                <div className="modal-action">
-                                    <form method="dialog">
-                                        <button className="text-[20px] text-center absolute lg:right-40 right-10 top-7 lg:top-6">✕</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </dialog>
+                            </dialog>
+                        </div>
                     </div>
 
                     <div className="drawer drawer-end">
@@ -285,7 +287,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
