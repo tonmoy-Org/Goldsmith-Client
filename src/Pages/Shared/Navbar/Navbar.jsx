@@ -254,7 +254,7 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </label>
-                        </div> : <Link to='/login' className='lg:me-3 btn btn-sm  font-bold text-[#1890ff]'>Login</Link>}
+                        </div> : <Link to='/login' className='lg:me-3 btn btn-xs   font-bold text-[#1890ff]'>Login</Link>}
                         <div className="drawer-side z-10">
                             <label htmlFor="my-drawer-5" aria-label="close sidebar" className="drawer-overlay"></label>
                             <div className="menu p-4 lg:w-[450px] w-80 min-h-full bg-white text-base-content">
