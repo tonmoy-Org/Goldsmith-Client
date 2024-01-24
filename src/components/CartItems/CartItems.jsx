@@ -18,7 +18,7 @@ const CartItems = ({ data }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://goldsmith-server.vercel.app/carts/${id}`, {
+                fetch(`http://localhost:5000/carts/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

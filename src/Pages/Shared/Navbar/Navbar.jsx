@@ -15,7 +15,7 @@ const Navbar = () => {
     const navigate = useNavigate()
     const { user, logOut } = useAuth();
     const [carts] = useCart();
-    const total = carts.reduce((sum, item) => item.price + sum, 0).toFixed(2);
+    const total = carts.reduce((sum, item) => item.price + sum, 0);
     const [isLoading, setLoading] = useState(false);
 
 
@@ -75,7 +75,7 @@ const Navbar = () => {
 
         // Simulate a 3-second delay using setTimeout
         setTimeout(() => {
-            fetch(`https://goldsmith-server.vercel.app/jewelry?name=${encodedSearchValue}`)
+            fetch(`http://localhost:5000/jewelry?name=${encodedSearchValue}`)
                 .then((res) => res.json())
                 .then((data) => {
                     navigate(`/search`, { state: { encodedSearchValue, searchResults: data } });
@@ -129,7 +129,7 @@ const Navbar = () => {
             <a className="btn btn-ghost normal-case text-xl font-bold">GOLDSMITH</a>
             <div className="navbar-end px-8">
                 <div className="flex items-center lg:pe-3">
-                    
+
                     <div className="dropdown dropdown-end">
                         <div>
                             <button className="btn btn-circle btn-ghost" onClick={() => document.getElementById('my_modal_4').showModal()}>

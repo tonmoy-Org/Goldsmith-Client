@@ -1,14 +1,23 @@
-import { useQuery } from "react-query";
-import useAuth from "./useAuth";
-
+import { useQuery } from 'react-query';
+import useAuth from './useAuth';
 
 const useCart = () => {
-    const {user} = useAuth();
-    const { data: carts = [], refetch } = useQuery(['carts'], async () => {
-        const res = await fetch(`https://goldsmith-server.vercel.app/carts?email=${user?.email}`); // Replace with the correct URL for fetching user data
-        return res.json();
-    });
-    return [carts, refetch];
-}
+    const { user, loading } = useAuth();
+    const token = localStorage.getItem('access-token');
+    const { refetch, data: cart = [] } = useQuery({
+        queryKey: ['carts', user?.email],
+        enabled: !loading,
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/carts?email=${user?.email}`, {
+                headers: {
+                    authorization: `bearer ${token}`
+                }
+            })
+            return res.json();
+        },
+    })
 
+    return [cart, refetch]
+
+}
 export default useCart;

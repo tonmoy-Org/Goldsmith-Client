@@ -4,7 +4,7 @@ import { useState } from "react"; // Import useState
 
 const Payment = () => {
     const [carts] = useCart();
-    const total = carts.reduce((sum, item) => item.price + sum, 0).toFixed(2);
+    const total = carts.reduce((sum, item) => item.price + sum, 0);
     const location = useLocation();
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/myPayments";

@@ -45,7 +45,7 @@ import {
     const saveUserToServer = (user) => {
       const saveUser = { name: user.displayName, email: user.email };
   
-      fetch("https://goldsmith-server.vercel.app/users", {
+      fetch("http://localhost:5000/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",

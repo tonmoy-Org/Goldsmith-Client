@@ -9,7 +9,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_Payments_PK);
 
 const MyPayments = () => {
     const [carts] = useCart();
-    const total = carts.reduce((sum, item) => sum + item.price, 0);
+    const total = carts.reduce((sum, item) => item.price + sum, 0);
     const price = parseFloat(total.toFixed(2));
     const { user } = useAuth();
 
@@ -24,7 +24,7 @@ const MyPayments = () => {
     };
     return (
         <div className="bg-[#f6f9fc]">
-            <div  className="AppWrapper ">
+            <div className="AppWrapper ">
                 <Elements stripe={stripePromise}>
                     <CheckoutForm paymentInfo={paymentInfo} price={price}></CheckoutForm>
                 </Elements>
